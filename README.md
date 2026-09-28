@@ -4,7 +4,7 @@ Workflows, tools and pitfalls for planning with Claude Code and other coding age
 article and its Hacker News discussion and stored as a linked graph of small Markdown notes:
 
 - **Article:** [Plan mode is dead](https://www.aymannadeem.com/artificial/intelligence,/developer/tools/2026/09/24/plan-mode-is-dead.html) (Ayman Nadeem, 2026-09-24)
-- **Discussion:** [HN item 49840054](https://news.ycombinator.com/item?id=49840054), 492 comments at last capture (2026-09-27), including a statement from the Claude Code team
+- **Discussion:** [HN item 49840054](https://news.ycombinator.com/item?id=49840054), 496 comments at last capture (2026-09-28), including a statement from the Claude Code team
 
 **Interactive version:** open [explorer/index.html](explorer/index.html) in a browser (graph you can
 click through, full notes, search, and a **Compare** table with filters). It is regenerated with the
@@ -13,7 +13,8 @@ graph on every build. For a plain side-by-side table on GitHub, see [COMPARE.md]
 Every claim links to the comment it came from. Start with the [playbook](#playbook), use the
 [decision guide](#which-workflow-when) to pick a workflow, or browse [INDEX.md](INDEX.md).
 
-> This branch is a fresh start. Keep `main` clean: work on a branch and merge through a PR.
+**Published artifact:** <https://claude.ai/artifact/HfP7FDiwjatx5xE3NU4Rys> (private until shared). Its
+source is [artifact/index.html](artifact/index.html); see [Artifact](#artifact).
 
 ## Playbook
 
@@ -125,6 +126,7 @@ flowchart LR
 | [COMPARE.md](COMPARE.md) | Workflows, tools and anti-patterns side by side on stage, task size, effort, token cost, origin, evidence (generated) |
 | [INDEX.md](INDEX.md) | Every node with summary, in/out degree, hubs, and the edge vocabulary (generated) |
 | [graph/](graph/) | `graph.json` (nodes + typed edges), `graph.mmd`, `GRAPH.md` (generated) |
+| [artifact/index.html](artifact/index.html) | The explorer as published to the Claude artifact, minus held-back notes (generated) |
 | [explorer/index.html](explorer/index.html) | Interactive single-file explorer: graph, notes, playbook, search (generated) |
 | [scripts/](scripts/) | `build_graph.py` (index/graph/backlinks/explorer), `build_explorer.py` (the HTML page), `ingest.py` (capture sources) |
 | [.claude/skills/kb-update/](.claude/skills/kb-update/SKILL.md) | Skill that runs the update loop from a URL |
@@ -225,6 +227,20 @@ Choices made, and what would improve the system next:
 - **Next: scheduled refresh.** A weekly scheduled job (a Claude Code routine or a CI cron) running
   `ingest.py refresh` and opening a PR with the mined delta would keep the base current without
   manual work.
+
+## Artifact
+
+`artifact/index.html` is the explorer page exactly as published to the Claude artifact above. The
+build regenerates it with everything else, so it can't drift from the notes. Two differences from
+`explorer/index.html`:
+
+- It's a fragment (no `<html>`/`<head>`/`<body>`), because the artifact host adds those.
+- It leaves out the notes listed in `HOLD_BACK` in [scripts/build_artifact.py](scripts/build_artifact.py).
+  The artifact publisher's validator rejects their text as if the page were a pull-request review
+  page; the exact phrase hasn't been found. Links to held-back notes become plain text.
+
+To update the live page, rebuild and publish `artifact/index.html` to the same artifact URL (in Claude
+Code: "republish the artifact"). Remove an id from `HOLD_BACK` once its text publishes cleanly.
 
 ## Caveats
 

@@ -20,6 +20,7 @@ From those blocks this script writes:
   graph/graph.mmd    Mermaid flowchart of the whole graph
   graph/GRAPH.md     the same flowchart in a Markdown fence (GitHub renders it)
   explorer/index.html  interactive page: graph, full notes, playbook (scripts/build_explorer.py)
+  artifact/index.html  the same page as published to the Claude artifact (scripts/build_artifact.py)
   INDEX.md           every node by type, with in/out degree
 and rewrites the generated "Links" section at the bottom of every node file
 so each node shows its outgoing edges and its backlinks.
@@ -360,11 +361,15 @@ def main():
     outputs[ROOT / "INDEX.md"] = index_md(nodes, incoming)
     outputs[ROOT / "COMPARE.md"] = compare_md(nodes, incoming)
     sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from build_artifact import HOLD_BACK, render as render_artifact
     from build_explorer import render as render_explorer
 
-    outputs[ROOT / "explorer" / "index.html"] = render_explorer(
-        graph, {n["id"]: n["_text"] for n in nodes.values()}, (ROOT / "README.md").read_text(), RELATIONS, FACETS
-    )
+    explorer_args = (graph, {n["id"]: n["_text"] for n in nodes.values()}, (ROOT / "README.md").read_text(), RELATIONS, FACETS)
+    outputs[ROOT / "explorer" / "index.html"] = render_explorer(*explorer_args)
+    outputs[ROOT / "artifact" / "index.html"] = render_artifact(render_explorer(*explorer_args, fragment=True))
+    missing = [h for h in HOLD_BACK if h not in nodes]
+    if missing:
+        sys.exit(f"scripts/build_artifact.py: HOLD_BACK names missing node(s): {', '.join(missing)}")
     for n in nodes.values():
         outputs[ROOT / n["path"]] = with_links(n["_text"], links_section(n, nodes, incoming))
 

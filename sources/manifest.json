@@ -21,6 +21,11 @@
           "at": "20260927T200323Z",
           "sha256": "627beb61e41249e650b577c16e877c1143162de4d6d8f009a15cdab2e9e424a2",
           "summary": "492 comments, 49 new"
+        },
+        {
+          "at": "20260928T084821Z",
+          "sha256": "1acdaf75462e5ae8439093bf7e59e7475370b3e409b648066defcba543c8f54b",
+          "summary": "496 comments, 4 new"
         }
       ],
       "kind": "hn",
@@ -520,7 +525,11 @@
         49868748,
         49869088,
         49869286,
-        49870125
+        49870125,
+        49871794,
+        49874569,
+        49874581,
+        49874606
       ],
       "url": "https://news.ycombinator.com/item?id=49840054"
     },
@@ -545,6 +554,11 @@
           "at": "20260927T200324Z",
           "sha256": "fc0baf2dc860e16a91e1fb9365288ddce741e90f16a1507e980f94479c8853e5",
           "summary": "11474 chars, unchanged"
+        },
+        {
+          "at": "20260928T084822Z",
+          "sha256": "fc0baf2dc860e16a91e1fb9365288ddce741e90f16a1507e980f94479c8853e5",
+          "summary": "11474 chars, changed"
         }
       ],
       "kind": "web",

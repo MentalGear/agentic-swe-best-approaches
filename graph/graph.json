@@ -892,7 +892,8 @@
         "https://news.ycombinator.com/item?id=49856982",
         "https://news.ycombinator.com/item?id=49859889",
         "https://news.ycombinator.com/item?id=49860536",
-        "https://news.ycombinator.com/item?id=49863290"
+        "https://news.ycombinator.com/item?id=49863290",
+        "https://news.ycombinator.com/item?id=49874581"
       ],
       "path": "workflows/wf-phased-handoffs.md",
       "stage": [
@@ -1439,6 +1440,7 @@
         "unvetted"
       ],
       "sources": [
+        "https://news.ycombinator.com/item?id=49874569",
         "https://news.ycombinator.com/item?id=49860141",
         "https://news.ycombinator.com/item?id=49869088",
         "https://news.ycombinator.com/item?id=49860289",
@@ -1668,7 +1670,8 @@
         "https://news.ycombinator.com/item?id=49852894",
         "https://news.ycombinator.com/item?id=49853088",
         "https://news.ycombinator.com/item?id=49854479",
-        "https://news.ycombinator.com/item?id=49853982"
+        "https://news.ycombinator.com/item?id=49853982",
+        "https://news.ycombinator.com/item?id=49871794"
       ],
       "path": "anti-patterns/ap-cargo-cult-prompts.md",
       "stage": [

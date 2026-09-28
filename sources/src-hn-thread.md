@@ -23,7 +23,7 @@ links:
 # HN thread: Plan mode is dead
 
 - **URL:** <https://news.ycombinator.com/item?id=49840054>
-- **Submitted:** 2026-09-24 by `jmvldz` · 315 points at first capture. Comments: 294 at first capture, 446 at the refresh on 2026-09-26, 492 on 2026-09-27 (see `sources/manifest.json`).
+- **Submitted:** 2026-09-24 by `jmvldz` · 315 points at first capture. Comments: 294 at first capture, 446 at the refresh on 2026-09-26, 492 on 2026-09-27, 496 on 2026-09-28 (see `sources/manifest.json`).
 - **Captured via:** the HN Algolia items API (`https://hn.algolia.com/api/v1/items/49840054`).
 
 ## Shape of the discussion

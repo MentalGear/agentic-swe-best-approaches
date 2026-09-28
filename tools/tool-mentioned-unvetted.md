@@ -6,7 +6,7 @@ summary: Products and repos linked in the thread, mostly by their own authors; l
 tags: [third-party, unvetted]
 origin: third-party
 stage: [planning, context]
-sources: [49860141, 49869088, 49860289, 49859889, 49857455, 49857525, 49858677, 49857052, 49854981, 49857336, 49855463, 49855658, 49854874, 49854152, 49854522, 49854586, 49852413, 49852673, 49852090, 49852380, 49852652, 49853966]
+sources: [49874569, 49860141, 49869088, 49860289, 49859889, 49857455, 49857525, 49858677, 49857052, 49854981, 49857336, 49855463, 49855658, 49854874, 49854152, 49854522, 49854586, 49852413, 49852673, 49852090, 49852380, 49852652, 49853966]
 links:
   - relates-to: tool-beads
   - relates-to: src-hn-thread
@@ -19,7 +19,7 @@ installing anything that runs with agent permissions.
 | Name | What it claims | Mentioned in |
 |---|---|---|
 | Nuanced (nuanced.dev) | The article author's plan-first coding app | article |
-| epiq (ljtn.github.io/epiq) | Git-backed issue tracker with immutable event logs, workflow replay, inline diffs. kavok found its setup skill referenced issue IDs unrelated to their project ([49869088](https://news.ycombinator.com/item?id=49869088)) | [49854152](https://news.ycombinator.com/item?id=49854152) (author) |
+| epiq (ljtn.github.io/epiq) | Git-backed issue tracker with immutable event logs, workflow replay, inline diffs. kavok found its setup skill referenced issue IDs unrelated to their project ([49869088](https://news.ycombinator.com/item?id=49869088)); the author says the skill had regressed and is now fixed ([49874569](https://news.ycombinator.com/item?id=49874569)) | [49854152](https://news.ycombinator.com/item?id=49854152) (author) |
 | recursive-mode.dev | Not described | [49854522](https://news.ycombinator.com/item?id=49854522) |
 | aventasks.dev | Task tracker for humans and agents, successor to their taskwarrior use | [49854586](https://news.ycombinator.com/item?id=49854586) (author) |
 | propelcode.app | Harness with a plan-mode variant | [49852413](https://news.ycombinator.com/item?id=49852413) (author) |
@@ -47,6 +47,6 @@ installing anything that runs with agent permissions.
 - *relates-to* → [beads](../tools/tool-beads.md) `tool-beads`
 - *relates-to* → [HN thread: Plan mode is dead](../sources/src-hn-thread.md) `src-hn-thread`
 
-**Evidence:** [49860141](https://news.ycombinator.com/item?id=49860141), [49869088](https://news.ycombinator.com/item?id=49869088), [49860289](https://news.ycombinator.com/item?id=49860289), [49859889](https://news.ycombinator.com/item?id=49859889), [49857455](https://news.ycombinator.com/item?id=49857455), [49857525](https://news.ycombinator.com/item?id=49857525), [49858677](https://news.ycombinator.com/item?id=49858677), [49857052](https://news.ycombinator.com/item?id=49857052), [49854981](https://news.ycombinator.com/item?id=49854981), [49857336](https://news.ycombinator.com/item?id=49857336), [49855463](https://news.ycombinator.com/item?id=49855463), [49855658](https://news.ycombinator.com/item?id=49855658), [49854874](https://news.ycombinator.com/item?id=49854874), [49854152](https://news.ycombinator.com/item?id=49854152), [49854522](https://news.ycombinator.com/item?id=49854522), [49854586](https://news.ycombinator.com/item?id=49854586), [49852413](https://news.ycombinator.com/item?id=49852413), [49852673](https://news.ycombinator.com/item?id=49852673), [49852090](https://news.ycombinator.com/item?id=49852090), [49852380](https://news.ycombinator.com/item?id=49852380), [49852652](https://news.ycombinator.com/item?id=49852652), [49853966](https://news.ycombinator.com/item?id=49853966)
+**Evidence:** [49874569](https://news.ycombinator.com/item?id=49874569), [49860141](https://news.ycombinator.com/item?id=49860141), [49869088](https://news.ycombinator.com/item?id=49869088), [49860289](https://news.ycombinator.com/item?id=49860289), [49859889](https://news.ycombinator.com/item?id=49859889), [49857455](https://news.ycombinator.com/item?id=49857455), [49857525](https://news.ycombinator.com/item?id=49857525), [49858677](https://news.ycombinator.com/item?id=49858677), [49857052](https://news.ycombinator.com/item?id=49857052), [49854981](https://news.ycombinator.com/item?id=49854981), [49857336](https://news.ycombinator.com/item?id=49857336), [49855463](https://news.ycombinator.com/item?id=49855463), [49855658](https://news.ycombinator.com/item?id=49855658), [49854874](https://news.ycombinator.com/item?id=49854874), [49854152](https://news.ycombinator.com/item?id=49854152), [49854522](https://news.ycombinator.com/item?id=49854522), [49854586](https://news.ycombinator.com/item?id=49854586), [49852413](https://news.ycombinator.com/item?id=49852413), [49852673](https://news.ycombinator.com/item?id=49852673), [49852090](https://news.ycombinator.com/item?id=49852090), [49852380](https://news.ycombinator.com/item?id=49852380), [49852652](https://news.ycombinator.com/item?id=49852652), [49853966](https://news.ycombinator.com/item?id=49853966)
 
 <!-- graph:links:end -->

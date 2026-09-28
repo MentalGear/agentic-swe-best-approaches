@@ -30,7 +30,7 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [Read-only credentials instead of trust](workflows/wf-least-privilege-data.md) | safety | small, feature, large, long-run | medium | low | Scale ceremony to blast radius; Unbounded "looks good, go" | 8 |
 | [Refactor to make the change easy](workflows/wf-refactor-before-feature.md) | execution | feature, large | medium | medium | Keeping the human's mental model current; Understand → act → inspect → adjust | 2 |
 | [Scripts that draw the system from code](workflows/wf-deterministic-views.md) | understanding | large, long-run | medium | low | Keeping the human's mental model current; Trusting the agent's account of its code | 3 |
-| [Short sessions passing handoff docs](workflows/wf-phased-handoffs.md) | context, execution | large, long-run | high | medium | The plan as a context boundary | 14 |
+| [Short sessions passing handoff docs](workflows/wf-phased-handoffs.md) | context, execution | large, long-run | high | medium | The plan as a context boundary | 15 |
 | [Skip the plan, review the PR](workflows/wf-review-code-not-plans.md) | review, execution | small, feature | low | medium | Understand → act → inspect → adjust | 5 |
 | [Strategy doc, then sprint doc, then build](workflows/wf-staged-docs.md) | planning, review | large | high | high | Never trust a single session | 4 |
 | [Switch to planning when it spirals](workflows/wf-plan-to-escape-spiral.md) | execution | small, feature | low | low | The two jobs of plan mode | 2 |
@@ -52,7 +52,7 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [imbue-ai/blueprint](tools/tool-imbue-blueprint.md) | third-party | planning | low | Claude Code plan mode | 1 |
 | [obra/superpowers](tools/tool-superpowers.md) | third-party | planning, execution | medium | — | 8 |
 | [opusplan model setting](tools/tool-opusplan.md) | built-in | planning, execution | low | Plan with a strong model, build with a cheaper one | 2 |
-| [Other tools mentioned (unvetted)](tools/tool-mentioned-unvetted.md) | third-party | planning, context | — | — | 22 |
+| [Other tools mentioned (unvetted)](tools/tool-mentioned-unvetted.md) | third-party | planning, context | — | — | 23 |
 | [Plannotator](tools/tool-plannotator.md) | third-party | planning, review | low | Plan file, then a fresh session; Generated prose is hard to review; obra/superpowers | 8 |
 | [Sandboxes and read-only credentials](tools/tool-sandboxes.md) | practice | safety | medium | Read-only credentials instead of trust; Scale ceremony to blast radius | 4 |
 | [Subagents](tools/tool-subagents.md) | built-in | review, execution, context | low | Adversarial review by a second session; Parent theorizes, children execute; Throwaway spikes while planning | 4 |
@@ -62,7 +62,7 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | Name | Stage | Instance of | Evidence |
 |---|---|---|---|
 | [Anchoring on the first choice](anti-patterns/ap-anchoring-on-first-choice.md) | planning, execution | Understand → act → inspect → adjust | 5 |
-| [Cargo-cult mega-prompts](anti-patterns/ap-cargo-cult-prompts.md) | planning, review | Plan mode is only a prompt | 4 |
+| [Cargo-cult mega-prompts](anti-patterns/ap-cargo-cult-prompts.md) | planning, review | Plan mode is only a prompt | 5 |
 | [Comments as the agent's scratchpad](anti-patterns/ap-comment-dumping.md) | review | Generated prose is hard to review | 8 |
 | [Implementation details in the plan](anti-patterns/ap-overspecified-plan.md) | planning | Generated prose is hard to review; Smarter models still can't read minds | 4 |
 | [Orchestration theater](anti-patterns/ap-orchestration-theater.md) | execution | Plan with a strong model, build with a cheaper one | 4 |

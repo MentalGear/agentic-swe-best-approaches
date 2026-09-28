@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-REPO_BLOB = "https://github.com/MentalGear/clean-slate-claude-code/blob/claude/sweet-meitner-6cqvrw/"
+REPO_BLOB = "https://github.com/MentalGear/agentic-swe-best-approaches/blob/main/"
 BEGIN = "<!-- graph:links:begin"
 README_SECTIONS = ["Playbook", "Which workflow when", "Updating from this or other sources", "Caveats"]
 
@@ -311,7 +311,7 @@ footer { font-size: 12px; color: var(--muted); }
   </main>
 
   <footer>Generated from the repository by <code>scripts/build_graph.py</code>. Source notes:
-    <a href="https://github.com/MentalGear/clean-slate-claude-code/tree/claude/sweet-meitner-6cqvrw">MentalGear/clean-slate-claude-code</a>.</footer>
+    <a href="https://github.com/MentalGear/agentic-swe-best-approaches">MentalGear/agentic-swe-best-approaches</a>.</footer>
 </div>
 
 <script type="application/json" id="kb-data">__DATA__</script>

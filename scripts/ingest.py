@@ -41,7 +41,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MANIFEST = ROOT / "sources" / "manifest.json"
 CACHE = ROOT / ".cache" / "sources"
 HN_ITEM = "https://news.ycombinator.com/item?id="
-UA = "clean-slate-kb-ingest/1.0 (+https://github.com/MentalGear/clean-slate-claude-code)"
+UA = "agentic-swe-kb-ingest/1.0 (+https://github.com/MentalGear/agentic-swe-best-approaches)"
 
 
 def fetch(url):
