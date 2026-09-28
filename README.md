@@ -1,10 +1,12 @@
 # Coding Agents Best Practices
 
-Workflows, tools and pitfalls for planning with Claude Code and other coding agents, mined from one
-article and its Hacker News discussion and stored as a linked graph of small Markdown notes:
+Workflows, tools and pitfalls for planning with Claude Code and other coding agents, mined from two
+articles and their Hacker News discussions and stored as a linked graph of small Markdown notes:
 
 - **Article:** [Plan mode is dead](https://www.aymannadeem.com/artificial/intelligence,/developer/tools/2026/09/24/plan-mode-is-dead.html) (Ayman Nadeem, 2026-09-24)
 - **Discussion:** [HN item 49840054](https://news.ycombinator.com/item?id=49840054), 496 comments at last capture (2026-09-28), including a statement from the Claude Code team
+- **Article:** [Coding is NOT solved](https://blog.alexewerlof.com/p/coding-is-not-solved) (Alex Ewerlöf, 2026-09-26)
+- **Discussion:** [HN item 49877988](https://news.ycombinator.com/item?id=49877988), 359 comments at first capture (2026-09-28): review capacity, accountability, and what tests can and cannot prove
 
 **Interactive version:** open [explorer/index.html](explorer/index.html) in a browser (graph you can
 click through, full notes, search, and a **Compare** table with filters). It is regenerated with the

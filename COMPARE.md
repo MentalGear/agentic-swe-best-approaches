@@ -6,7 +6,7 @@ version, with filters and sorting, is the **Compare** tab of [explorer/index.htm
 Attributes: **Stage** = where in the work it applies (intent, planning, execution, review, understanding, context, safety); **Task size** = task sizes it suits (small, feature, large, long-run); **Effort** = human effort to adopt and run it (low, medium, high); **Token cost** = extra model usage it adds (low, medium, high); **Origin** = for tools: ships with Claude Code, external, or a general practice (built-in, third-party, practice).
 **Evidence** = comments and pages cited. Ratings are editorial judgments from the thread, not measurements.
 
-## Workflows (26)
+## Workflows (28)
 
 | Name | Stage | Task size | Effort | Token cost | Addresses | Evidence |
 |---|---|---|---|---|---|---|
@@ -15,7 +15,7 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [Agent-written decision log](workflows/wf-decision-log.md) | understanding, context | feature, large | low | low | Planning is not the plan; Keeping the human's mental model current | 8 |
 | [Challenge the first plan with more research](workflows/wf-second-research-pass.md) | planning, review | feature, large | low | medium | Anchoring on the first choice; Smarter models still can't read minds | 2 |
 | [Decommenting pass before PR](workflows/wf-decomment-pass.md) | review | small, feature | low | low | Comments as the agent's scratchpad | 3 |
-| [End-to-end tests that carry the plan](workflows/wf-test-harness-as-plan.md) | execution, review | long-run | high | high | Understand → act → inspect → adjust; Unbounded "looks good, go" | 4 |
+| [End-to-end tests that carry the plan](workflows/wf-test-harness-as-plan.md) | execution, review | long-run | high | high | Understand → act → inspect → adjust; Unbounded "looks good, go" | 10 |
 | [Explainer artifacts attached to PRs](workflows/wf-explainer-artifacts.md) | understanding, review | feature, large | low | medium | Keeping the human's mental model current | 8 |
 | [Explore, list unknowns, scaffold, spike](workflows/wf-scaffold-then-spike.md) | planning, execution | feature, large | medium | medium | Smarter models still can't read minds; Generated prose is hard to review; Implementation details in the plan | 1 |
 | [Lightweight feasibility check](workflows/wf-feasibility-check.md) | planning | small, feature | low | low | Generated prose is hard to review | 4 |
@@ -25,7 +25,8 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [Plan file, then a fresh session](workflows/wf-plan-file-fresh-session.md) | planning, context | feature, large | medium | medium | The plan as a context boundary | 9 |
 | [Plan in conversation, no mode](workflows/wf-conversational-planning.md) | planning, intent | small, feature | low | low | Planning is not the plan; Modes make you answer a meta-question | 18 |
 | [Plan mode as a late checkpoint](workflows/wf-plan-as-late-checkpoint.md) | planning, context | feature, large | low | low | The plan as a context boundary; Smarter models still can't read minds | 5 |
-| [Prototype first, architecture later](workflows/wf-prototype-as-clay.md) | execution, intent | small, feature | low | medium | Understand → act → inspect → adjust; Fix the vocabulary first; Waterfall front-loading | 3 |
+| [Port against an oracle, or have the agent write the converter](workflows/wf-port-with-oracle.md) | execution, review | large, long-run | high | high | Green tests, drifted behaviour | 9 |
+| [Prototype first, architecture later](workflows/wf-prototype-as-clay.md) | execution, intent | small, feature | low | medium | Understand → act → inspect → adjust; Fix the vocabulary first; Waterfall front-loading | 4 |
 | [Re-plan until the spec stops changing](workflows/wf-spec-until-quiet.md) | planning, review | large | medium | high | Smarter models still can't read minds | 4 |
 | [Read-only credentials instead of trust](workflows/wf-least-privilege-data.md) | safety | small, feature, large, long-run | medium | low | Scale ceremony to blast radius; Unbounded "looks good, go" | 8 |
 | [Refactor to make the change easy](workflows/wf-refactor-before-feature.md) | execution | feature, large | medium | medium | Keeping the human's mental model current; Understand → act → inspect → adjust | 2 |
@@ -35,6 +36,7 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [Strategy doc, then sprint doc, then build](workflows/wf-staged-docs.md) | planning, review | large | high | high | Never trust a single session | 4 |
 | [Switch to planning when it spirals](workflows/wf-plan-to-escape-spiral.md) | execution | small, feature | low | low | The two jobs of plan mode | 2 |
 | [Throwaway spikes while planning](workflows/wf-spike-during-planning.md) | planning, execution | feature, large | medium | high | Understand → act → inspect → adjust | 3 |
+| [Turn "what good looks like" into checks the agent runs](workflows/wf-executable-quality-rules.md) | execution, review | feature, large, long-run | medium | low | Review capacity is the limit on agent output; Green tests, drifted behaviour; Understand → act → inspect → adjust | 8 |
 | [You write the spec, the agent asks](workflows/wf-human-authored-spec.md) | intent, planning, understanding | feature, large | high | low | Generated prose is hard to review; Keeping the human's mental model current | 4 |
 
 ## Tools (15)
@@ -52,21 +54,22 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [imbue-ai/blueprint](tools/tool-imbue-blueprint.md) | third-party | planning | low | Claude Code plan mode | 1 |
 | [obra/superpowers](tools/tool-superpowers.md) | third-party | planning, execution | medium | — | 8 |
 | [opusplan model setting](tools/tool-opusplan.md) | built-in | planning, execution | low | Plan with a strong model, build with a cheaper one | 2 |
-| [Other tools mentioned (unvetted)](tools/tool-mentioned-unvetted.md) | third-party | planning, context | — | — | 23 |
+| [Other tools mentioned (unvetted)](tools/tool-mentioned-unvetted.md) | third-party | planning, context | — | — | 27 |
 | [Plannotator](tools/tool-plannotator.md) | third-party | planning, review | low | Plan file, then a fresh session; Generated prose is hard to review; obra/superpowers | 8 |
 | [Sandboxes and read-only credentials](tools/tool-sandboxes.md) | practice | safety | medium | Read-only credentials instead of trust; Scale ceremony to blast radius | 4 |
 | [Subagents](tools/tool-subagents.md) | built-in | review, execution, context | low | Adversarial review by a second session; Parent theorizes, children execute; Throwaway spikes while planning | 4 |
 
-## Anti-patterns (9)
+## Anti-patterns (10)
 
 | Name | Stage | Instance of | Evidence |
 |---|---|---|---|
 | [Anchoring on the first choice](anti-patterns/ap-anchoring-on-first-choice.md) | planning, execution | Understand → act → inspect → adjust | 5 |
 | [Cargo-cult mega-prompts](anti-patterns/ap-cargo-cult-prompts.md) | planning, review | Plan mode is only a prompt | 5 |
 | [Comments as the agent's scratchpad](anti-patterns/ap-comment-dumping.md) | review | Generated prose is hard to review | 8 |
+| [Green tests, drifted behaviour](anti-patterns/ap-green-tests-drift.md) | execution, review | Review capacity is the limit on agent output | 9 |
 | [Implementation details in the plan](anti-patterns/ap-overspecified-plan.md) | planning | Generated prose is hard to review; Smarter models still can't read minds | 4 |
 | [Orchestration theater](anti-patterns/ap-orchestration-theater.md) | execution | Plan with a strong model, build with a cheaper one | 4 |
-| [Review loops with no stop rule](anti-patterns/ap-endless-review.md) | review | Never trust a single session | 2 |
-| [Trusting the agent's account of its code](anti-patterns/ap-trusting-explanations.md) | understanding, review | Keeping the human's mental model current | 4 |
-| [Unbounded "looks good, go"](anti-patterns/ap-unsupervised-autonomy.md) | safety, execution | Scale ceremony to blast radius; Understand → act → inspect → adjust | 7 |
+| [Review loops with no stop rule](anti-patterns/ap-endless-review.md) | review | Never trust a single session | 3 |
+| [Trusting the agent's account of its code](anti-patterns/ap-trusting-explanations.md) | understanding, review | Keeping the human's mental model current | 6 |
+| [Unbounded "looks good, go"](anti-patterns/ap-unsupervised-autonomy.md) | safety, execution | Scale ceremony to blast radius; Understand → act → inspect → adjust | 13 |
 | [Waterfall front-loading](anti-patterns/ap-front-loading.md) | planning | Understand → act → inspect → adjust; Planning is not the plan | 4 |

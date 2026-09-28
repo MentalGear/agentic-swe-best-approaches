@@ -58,6 +58,7 @@ btreecat's reply to jaapz: without a plan, "it always does something unexpected 
 
 **Backlinks**
 
+- [Review capacity is the limit on agent output](../concepts/con-review-capacity.md) `con-review-capacity` *relates-to* this
 - [HN thread: Plan mode is dead](../sources/src-hn-thread.md) `src-hn-thread` *surfaces* this
 
 **Evidence:** [49857655](https://news.ycombinator.com/item?id=49857655), [49856922](https://news.ycombinator.com/item?id=49856922), [49855652](https://news.ycombinator.com/item?id=49855652), [49858230](https://news.ycombinator.com/item?id=49858230), [49856059](https://news.ycombinator.com/item?id=49856059)

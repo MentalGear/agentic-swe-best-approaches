@@ -52,6 +52,7 @@ a fresh session, another model, a reviewer, or a future you doing forensics.
 **Backlinks**
 
 - [Waterfall front-loading](../anti-patterns/ap-front-loading.md) `ap-front-loading` *relates-to* this
+- [Typing code versus owning the software](../concepts/con-coding-vs-engineering.md) `con-coding-vs-engineering` *relates-to* this
 - [Fix the vocabulary first](../concepts/con-domain-language.md) `con-domain-language` *relates-to* this
 - [Article: Plan mode is dead](../sources/src-article.md) `src-article` *argues* this
 - [HN thread: Plan mode is dead](../sources/src-hn-thread.md) `src-hn-thread` *disputes* this

@@ -52,6 +52,7 @@ from node frontmatter.
 **Backlinks**
 
 - [Explainer artifacts attached to PRs](../workflows/wf-explainer-artifacts.md) `wf-explainer-artifacts` *complements* this
+- [Port against an oracle, or have the agent write the converter](../workflows/wf-port-with-oracle.md) `wf-port-with-oracle` *relates-to* this
 
 **Evidence:** [49854001](https://news.ycombinator.com/item?id=49854001), [49852844](https://news.ycombinator.com/item?id=49852844), [49854258](https://news.ycombinator.com/item?id=49854258)
 

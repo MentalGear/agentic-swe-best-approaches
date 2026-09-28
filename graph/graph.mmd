@@ -1,11 +1,15 @@
 flowchart LR
   subgraph source[Sources]
+    src_article_coding_not_solved[("Article: Coding is NOT solved")]
     src_article[("Article: Plan mode is dead")]
+    src_hn_coding_not_solved[("HN thread: Coding Is Not Solved")]
     src_hn_thread[("HN thread: Plan mode is dead")]
   end
   subgraph concept[Concepts]
+    con_accountability(["Whoever ships the code owns it"])
     con_ai_prose_fatigue(["Generated prose is hard to review"])
     con_blast_radius(["Scale ceremony to blast radius"])
+    con_coding_vs_engineering(["Typing code versus owning the software"])
     con_context_boundary(["The plan as a context boundary"])
     con_cross_model_review(["Never trust a single session"])
     con_domain_language(["Fix the vocabulary first"])
@@ -14,6 +18,7 @@ flowchart LR
     con_model_tiering(["Plan with a strong model, build with a cheaper one"])
     con_plan_mode_is_a_prompt(["Plan mode is only a prompt"])
     con_planning_vs_plan(["Planning is not the plan"])
+    con_review_capacity(["Review capacity is the limit on agent output"])
     con_two_jobs_of_plan_mode(["The two jobs of plan mode"])
     con_underspecification(["Smarter models still can't read minds"])
     con_understanding_problem(["Keeping the human's mental model current"])
@@ -25,6 +30,7 @@ flowchart LR
     wf_decision_log["Agent-written decision log"]
     wf_decomment_pass["Decommenting pass before PR"]
     wf_deterministic_views["Scripts that draw the system from code"]
+    wf_executable_quality_rules["Turn 'what good looks like' into checks the agent runs"]
     wf_explainer_artifacts["Explainer artifacts attached to PRs"]
     wf_feasibility_check["Lightweight feasibility check"]
     wf_human_authored_spec["You write the spec, the agent asks"]
@@ -36,6 +42,7 @@ flowchart LR
     wf_plan_as_late_checkpoint["Plan mode as a late checkpoint"]
     wf_plan_file_fresh_session["Plan file, then a fresh session"]
     wf_plan_to_escape_spiral["Switch to planning when it spirals"]
+    wf_port_with_oracle["Port against an oracle, or have the agent write the converter"]
     wf_prototype_as_clay["Prototype first, architecture later"]
     wf_refactor_before_feature["Refactor to make the change easy"]
     wf_review_code_not_plans["Skip the plan, review the PR"]
@@ -69,13 +76,19 @@ flowchart LR
     ap_comment_dumping{{"Comments as the agent's scratchpad"}}
     ap_endless_review{{"Review loops with no stop rule"}}
     ap_front_loading{{"Waterfall front-loading"}}
+    ap_green_tests_drift{{"Green tests, drifted behaviour"}}
     ap_orchestration_theater{{"Orchestration theater"}}
     ap_overspecified_plan{{"Implementation details in the plan"}}
     ap_trusting_explanations{{"Trusting the agent's account of its code"}}
     ap_unsupervised_autonomy{{"Unbounded 'looks good, go'"}}
   end
+  con_accountability -- relates-to --> con_review_capacity
+  con_accountability -- relates-to --> con_understanding_problem
   con_ai_prose_fatigue -- relates-to --> con_understanding_problem
   con_blast_radius -- relates-to --> con_underspecification
+  con_coding_vs_engineering -- relates-to --> con_understanding_problem
+  con_coding_vs_engineering -- relates-to --> con_underspecification
+  con_coding_vs_engineering -- relates-to --> con_planning_vs_plan
   con_context_boundary -- relates-to --> con_model_tiering
   con_cross_model_review -- relates-to --> con_underspecification
   con_domain_language -- relates-to --> con_planning_vs_plan
@@ -85,6 +98,9 @@ flowchart LR
   con_plan_mode_is_a_prompt -- relates-to --> con_blast_radius
   con_planning_vs_plan -- tension-with --> con_ai_prose_fatigue
   con_planning_vs_plan -- relates-to --> con_iterative_loop
+  con_review_capacity -- relates-to --> con_cross_model_review
+  con_review_capacity -- relates-to --> con_understanding_problem
+  con_review_capacity -- relates-to --> wf_review_code_not_plans
   con_two_jobs_of_plan_mode -- relates-to --> con_understanding_problem
   con_two_jobs_of_plan_mode -- relates-to --> con_underspecification
   con_two_jobs_of_plan_mode -- relates-to --> con_plan_mode_is_a_prompt
@@ -107,6 +123,10 @@ flowchart LR
   wf_decomment_pass -- mitigates --> ap_comment_dumping
   wf_deterministic_views -- addresses --> con_understanding_problem
   wf_deterministic_views -- mitigates --> ap_trusting_explanations
+  wf_executable_quality_rules -- addresses --> con_review_capacity
+  wf_executable_quality_rules -- mitigates --> ap_green_tests_drift
+  wf_executable_quality_rules -- complements --> wf_test_harness_as_plan
+  wf_executable_quality_rules -- applies --> con_iterative_loop
   wf_explainer_artifacts -- addresses --> con_understanding_problem
   wf_explainer_artifacts -- uses --> tool_artifacts
   wf_explainer_artifacts -- complements --> wf_deterministic_views
@@ -146,6 +166,9 @@ flowchart LR
   wf_plan_file_fresh_session -- uses --> tool_plannotator
   wf_plan_to_escape_spiral -- applies --> con_two_jobs_of_plan_mode
   wf_plan_to_escape_spiral -- uses --> tool_claude_code_plan_mode
+  wf_port_with_oracle -- mitigates --> ap_green_tests_drift
+  wf_port_with_oracle -- relates-to --> wf_deterministic_views
+  wf_port_with_oracle -- relates-to --> con_blast_radius
   wf_prototype_as_clay -- applies --> con_iterative_loop
   wf_prototype_as_clay -- applies --> con_domain_language
   wf_prototype_as_clay -- mitigates --> ap_front_loading
@@ -190,6 +213,7 @@ flowchart LR
   tool_imbue_blueprint -- alternative-to --> tool_claude_code_plan_mode
   tool_mentioned_unvetted -- relates-to --> tool_beads
   tool_mentioned_unvetted -- relates-to --> src_hn_thread
+  tool_mentioned_unvetted -- relates-to --> src_hn_coding_not_solved
   tool_opusplan -- instance-of --> con_model_tiering
   tool_opusplan -- relates-to --> tool_claude_code_plan_mode
   tool_plannotator -- enables --> wf_plan_file_fresh_session
@@ -211,12 +235,18 @@ flowchart LR
   ap_endless_review -- relates-to --> con_cross_model_review
   ap_front_loading -- instance-of --> con_iterative_loop
   ap_front_loading -- relates-to --> con_planning_vs_plan
+  ap_green_tests_drift -- relates-to --> ap_unsupervised_autonomy
+  ap_green_tests_drift -- relates-to --> con_review_capacity
   ap_orchestration_theater -- relates-to --> con_model_tiering
   ap_overspecified_plan -- instance-of --> con_ai_prose_fatigue
   ap_overspecified_plan -- tension-with --> con_underspecification
   ap_trusting_explanations -- instance-of --> con_understanding_problem
   ap_unsupervised_autonomy -- relates-to --> con_blast_radius
   ap_unsupervised_autonomy -- tension-with --> con_iterative_loop
+  src_article_coding_not_solved -- argues --> con_accountability
+  src_article_coding_not_solved -- argues --> con_coding_vs_engineering
+  src_article_coding_not_solved -- argues --> con_review_capacity
+  src_article_coding_not_solved -- discussed-in --> src_hn_coding_not_solved
   src_article -- argues --> con_planning_vs_plan
   src_article -- argues --> con_two_jobs_of_plan_mode
   src_article -- argues --> con_iterative_loop
@@ -224,6 +254,14 @@ flowchart LR
   src_article -- argues --> con_ai_prose_fatigue
   src_article -- argues --> con_mode_switch_cost
   src_article -- discussed-in --> src_hn_thread
+  src_hn_coding_not_solved -- surfaces --> con_coding_vs_engineering
+  src_hn_coding_not_solved -- surfaces --> con_accountability
+  src_hn_coding_not_solved -- surfaces --> con_review_capacity
+  src_hn_coding_not_solved -- surfaces --> ap_green_tests_drift
+  src_hn_coding_not_solved -- surfaces --> wf_port_with_oracle
+  src_hn_coding_not_solved -- surfaces --> wf_executable_quality_rules
+  src_hn_coding_not_solved -- disputes --> con_cross_model_review
+  src_hn_coding_not_solved -- surfaces --> ap_unsupervised_autonomy
   src_hn_thread -- contains-statement --> con_plan_mode_is_a_prompt
   src_hn_thread -- disputes --> con_planning_vs_plan
   src_hn_thread -- surfaces --> con_underspecification
@@ -237,11 +275,11 @@ flowchart LR
   src_hn_thread -- surfaces --> ap_anchoring_on_first_choice
   src_hn_thread -- surfaces --> ap_endless_review
   src_hn_thread -- surfaces --> wf_agentic_test_selection
-  class src_article,src_hn_thread source
-  class con_ai_prose_fatigue,con_blast_radius,con_context_boundary,con_cross_model_review,con_domain_language,con_iterative_loop,con_mode_switch_cost,con_model_tiering,con_plan_mode_is_a_prompt,con_planning_vs_plan,con_two_jobs_of_plan_mode,con_underspecification,con_understanding_problem concept
-  class wf_adversarial_review,wf_agentic_test_selection,wf_conversational_planning,wf_decision_log,wf_decomment_pass,wf_deterministic_views,wf_explainer_artifacts,wf_feasibility_check,wf_human_authored_spec,wf_interview_first,wf_least_privilege_data,wf_living_spec_dir,wf_orchestrator_subagents,wf_phased_handoffs,wf_plan_as_late_checkpoint,wf_plan_file_fresh_session,wf_plan_to_escape_spiral,wf_prototype_as_clay,wf_refactor_before_feature,wf_review_code_not_plans,wf_scaffold_then_spike,wf_second_research_pass,wf_spec_until_quiet,wf_spike_during_planning,wf_staged_docs,wf_test_harness_as_plan workflow
+  class src_article_coding_not_solved,src_article,src_hn_coding_not_solved,src_hn_thread source
+  class con_accountability,con_ai_prose_fatigue,con_blast_radius,con_coding_vs_engineering,con_context_boundary,con_cross_model_review,con_domain_language,con_iterative_loop,con_mode_switch_cost,con_model_tiering,con_plan_mode_is_a_prompt,con_planning_vs_plan,con_review_capacity,con_two_jobs_of_plan_mode,con_underspecification,con_understanding_problem concept
+  class wf_adversarial_review,wf_agentic_test_selection,wf_conversational_planning,wf_decision_log,wf_decomment_pass,wf_deterministic_views,wf_executable_quality_rules,wf_explainer_artifacts,wf_feasibility_check,wf_human_authored_spec,wf_interview_first,wf_least_privilege_data,wf_living_spec_dir,wf_orchestrator_subagents,wf_phased_handoffs,wf_plan_as_late_checkpoint,wf_plan_file_fresh_session,wf_plan_to_escape_spiral,wf_port_with_oracle,wf_prototype_as_clay,wf_refactor_before_feature,wf_review_code_not_plans,wf_scaffold_then_spike,wf_second_research_pass,wf_spec_until_quiet,wf_spike_during_planning,wf_staged_docs,wf_test_harness_as_plan workflow
   class tool_artifacts,tool_ask_user_question,tool_beads,tool_claude_code_hooks,tool_claude_code_plan_mode,tool_clops_mcp,tool_grill_me,tool_imbue_blueprint,tool_mentioned_unvetted,tool_opusplan,tool_plannotator,tool_review_uis,tool_sandboxes,tool_subagents,tool_superpowers tool
-  class ap_anchoring_on_first_choice,ap_cargo_cult_prompts,ap_comment_dumping,ap_endless_review,ap_front_loading,ap_orchestration_theater,ap_overspecified_plan,ap_trusting_explanations,ap_unsupervised_autonomy anti_pattern
+  class ap_anchoring_on_first_choice,ap_cargo_cult_prompts,ap_comment_dumping,ap_endless_review,ap_front_loading,ap_green_tests_drift,ap_orchestration_theater,ap_overspecified_plan,ap_trusting_explanations,ap_unsupervised_autonomy anti_pattern
   classDef source fill:#eee,stroke:#555
   classDef concept fill:#e8f0ff,stroke:#3a5fcd
   classDef workflow fill:#e9f7ec,stroke:#2e8b57

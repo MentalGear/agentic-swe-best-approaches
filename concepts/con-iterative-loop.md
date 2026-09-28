@@ -60,6 +60,7 @@ When the "act" step is irreversible (data, prod, money) or the inspect step need
 - [Planning is not the plan](../concepts/con-planning-vs-plan.md) `con-planning-vs-plan` *relates-to* this
 - [Article: Plan mode is dead](../sources/src-article.md) `src-article` *argues* this
 - [Agent-picked tests for slow CI](../workflows/wf-agentic-test-selection.md) `wf-agentic-test-selection` *applies* this
+- [Turn "what good looks like" into checks the agent runs](../workflows/wf-executable-quality-rules.md) `wf-executable-quality-rules` *applies* this
 - [Prototype first, architecture later](../workflows/wf-prototype-as-clay.md) `wf-prototype-as-clay` *applies* this
 - [Refactor to make the change easy](../workflows/wf-refactor-before-feature.md) `wf-refactor-before-feature` *applies* this
 - [Skip the plan, review the PR](../workflows/wf-review-code-not-plans.md) `wf-review-code-not-plans` *applies* this
