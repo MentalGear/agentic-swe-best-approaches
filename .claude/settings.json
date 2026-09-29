@@ -1,0 +1,14 @@
+{
+  "extraKnownMarketplaces": {
+    "information-miner": {
+      "source": {
+        "source": "github",
+        "repo": "MentalGear/information-miner",
+        "ref": "claude/wizardly-edison-u0o47b"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "information-miner@information-miner": true
+  }
+}

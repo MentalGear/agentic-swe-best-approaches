@@ -1,0 +1,14 @@
+{
+ "agent keeps making the same mistake in a loop": "wf-plan-to-escape-spiral",
+ "stop the AI from touching the production database": "wf-least-privilege-data",
+ "get a second opinion from a different model": "con-cross-model-review",
+ "my prompts are full of superstitious rituals": "ap-cargo-cult-prompts",
+ "the AI's explanation of its code might be wrong": "ap-trusting-explanations",
+ "letting it run overnight without checking": "ap-unsupervised-autonomy",
+ "use a cheaper model for the grunt work": "con-model-tiering",
+ "developers no longer understand their own codebase": "con-understanding-problem",
+ "write the plan to a file and start over with a clean context": "wf-plan-file-fresh-session",
+ "have the model ask me questions before it starts": "wf-interview-first",
+ "delete useless comments the AI wrote": "wf-decomment-pass",
+ "diagrams generated from the code": "wf-deterministic-views"
+}

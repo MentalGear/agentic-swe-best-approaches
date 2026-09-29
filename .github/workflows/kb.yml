@@ -1,0 +1,48 @@
+name: kb
+on:
+  push:
+  pull_request:
+# The engine is pinned to its development branch until it has a release tag; then pin the tag.
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/information-miner
+            .miner/cache/vectors-*.json
+          key: miner-${{ hashFiles('**/*.md') }}
+          restore-keys: miner-
+      - run: pip install "information-miner[semantic] @ git+https://github.com/MentalGear/information-miner@claude/wizardly-edison-u0o47b"
+      - run: miner check
+      - name: Report citations removed by this PR
+        if: github.event_name == 'pull_request'
+        run: miner check --against "origin/${{ github.base_ref }}"
+      - name: Fetch cited passages (only when kb.json opts in to publishing them)
+        run: if grep -Eq '"publish_evidence": *true' kb.json; then miner refresh; fi
+      - run: miner build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.event_name == 'push' && github.ref_name == github.event.repository.default_branch
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

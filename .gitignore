@@ -1,2 +1,3 @@
-.cache/
+.miner/cache/
+_site/
 __pycache__/
