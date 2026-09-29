@@ -1,5 +1,5 @@
 ---
-summary: Pages of role-play and procedure ("You are a senior expert reviewer…") that newer models don't need and that crowd out the actual task.
+summary: Pages of role-play and procedure, of the *You are a senior expert reviewer…* kind, that newer models don't need and that crowd out the actual task.
 tags: [prompting]
 stage: [planning, review]
 links:

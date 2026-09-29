@@ -1,5 +1,5 @@
 ---
-summary: Built-in mode (shift+tab or /plan) that adds a "don't code yet" reminder to each message; plus the hidden setting that restores clear-context-on-accept.
+summary: Built-in mode (shift+tab or /plan) that adds a reminder not to code yet to each message; plus the hidden setting that restores clear-context-on-accept.
 tags: [claude-code, built-in]
 origin: built-in
 stage: [planning]

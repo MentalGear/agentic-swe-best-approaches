@@ -1,5 +1,5 @@
 ---
-summary: CLI issue tracker for agents ("Jira for agents"), suggested for managing phased handoffs between short sessions.
+summary: CLI issue tracker for agents, called Jira for agents in the thread, suggested for managing phased handoffs between short sessions.
 tags: [third-party, tracking]
 origin: third-party
 stage: [context, execution]

@@ -1,5 +1,5 @@
 ---
-summary: Say "discuss first, no code yet" (or set a standing phrasing rule) and plan in the normal session; act only on an explicit go.
+summary: Tell the agent to discuss first and write no code yet (or set a standing phrasing rule), plan in the normal session, and act only on an explicit go.
 tags: [planning, default]
 stage: [planning, intent]
 effort: low
