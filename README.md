@@ -1,19 +1,24 @@
 # Coding Agents Best Practices
 
+> **This knowledge base has moved** to
+> [information-miner/kbs/agentic-swe](https://github.com/MentalGear/information-miner/tree/main/kbs/agentic-swe),
+> together with its full history. It is maintained, checked and published there, and has grown since
+> (a second article and thread, "Coding is NOT solved"). This repository is a frozen snapshot of the
+> migrated notes and can be archived.
+
 Workflows, tools and pitfalls for planning with Claude Code and other coding agents, mined from one
 article and its Hacker News discussion and stored as a linked graph of small Markdown notes:
 
 - **Article:** [Plan mode is dead](https://www.aymannadeem.com/artificial/intelligence,/developer/tools/2026/09/24/plan-mode-is-dead.html) (Ayman Nadeem, 2026-09-24)
 - **Discussion:** [HN item 49840054](https://news.ycombinator.com/item?id=49840054), 492 comments at last capture (2026-09-27), including a statement from the Claude Code team
 
-**Interactive version:** open [explorer/index.html](explorer/index.html) in a browser (graph you can
-click through, full notes, search, and a **Compare** table with filters). It is regenerated with the
-graph on every build. For a plain side-by-side table on GitHub, see [COMPARE.md](COMPARE.md).
+**Interactive version:** the published site (built by CI from `main`), or locally with
+`miner build` and `_site/index.html`: a map of the notes by meaning, each note with its
+connections, search in your own words, and a **Compare** table with filters.
 
-Every claim links to the comment it came from. Start with the [playbook](#playbook), use the
-[decision guide](#which-workflow-when) to pick a workflow, or browse [INDEX.md](INDEX.md).
-
-> This branch is a fresh start. Keep `main` clean: work on a branch and merge through a PR.
+Every claim links to the comment it came from, and every quotation is checked word for word against
+that comment. Start with the [playbook](#playbook), or use the [decision guide](#which-workflow-when)
+to pick a workflow.
 
 ## Playbook
 
@@ -66,7 +71,7 @@ What held up across the thread, most useful first:
 
 ## Map
 
-The core of the graph. The full graph (every node and edge) is in [graph/GRAPH.md](graph/GRAPH.md).
+The core of the graph. The full graph (every node and edge) is in the site's Map and Connections views.
 
 ```mermaid
 flowchart LR
@@ -116,115 +121,50 @@ flowchart LR
 
 | Path | Contents |
 |---|---|
-| [sources/](sources/) | Source nodes (article, thread) and `manifest.json` for the ingest script |
-| [concepts/](concepts/) | Ideas and tensions (`con-*`) |
-| [workflows/](workflows/) | Practices you can adopt, with steps and prompts (`wf-*`) |
-| [tools/](tools/) | Built-in and third-party tools (`tool-*`) |
-| [anti-patterns/](anti-patterns/) | What went wrong for people (`ap-*`) |
+| [sources/](sources/) | Source notes: the article and the thread |
+| [concepts/](concepts/) | Ideas and tensions |
+| [workflows/](workflows/) | Practices you can adopt, with steps and prompts |
+| [tools/](tools/) | Built-in and third-party tools |
+| [anti-patterns/](anti-patterns/) | What went wrong for people |
 | [templates/](templates/) | Ready-to-copy `CLAUDE.md` rules, plan/handoff docs, skills, a read-only hook |
-| [COMPARE.md](COMPARE.md) | Workflows, tools and anti-patterns side by side on stage, task size, effort, token cost, origin, evidence (generated) |
-| [INDEX.md](INDEX.md) | Every node with summary, in/out degree, hubs, and the edge vocabulary (generated) |
-| [graph/](graph/) | `graph.json` (nodes + typed edges), `graph.mmd`, `GRAPH.md` (generated) |
-| [explorer/index.html](explorer/index.html) | Interactive single-file explorer: graph, notes, playbook, search (generated) |
-| [scripts/](scripts/) | `build_graph.py` (index/graph/backlinks/explorer), `build_explorer.py` (the HTML page), `ingest.py` (capture sources) |
-| [.claude/skills/kb-update/](.claude/skills/kb-update/SKILL.md) | Skill that runs the update loop from a URL |
+| [kb.json](kb.json) | The schema: note types, relations (with the types each may connect), comparison attributes |
+| [.miner/state.json](.miner/state.json) | Which source items have been processed |
 
-## How the graph works
+## How it works
 
-Each note is one node. Its frontmatter declares identity, citations and typed outgoing edges:
-
-```yaml
----
-id: wf-plan-file-fresh-session       # = filename; prefix gives the type
-type: workflow                       # source | concept | workflow | tool | anti-pattern
-title: Plan file, then a fresh session
-summary: One line, shown in INDEX.md and graph.json.
-tags: [planning, context]
-stage: [planning, context]           # optional comparison attributes, checked against
-scale: [feature, large]              #   fixed value lists in scripts/build_graph.py (FACETS)
-effort: medium
-cost: medium
-sources: [49851138, https://example.com/post]   # HN item ids or URLs
-links:
-  - applies: con-context-boundary    # <relation>: <target id>
-  - uses: tool-plannotator
----
-```
-
-`python3 scripts/build_graph.py` then:
-
-- checks every edge target exists, every comparison attribute uses an allowed value, every relation
-  is in the controlled vocabulary (listed in
-  [INDEX.md](INDEX.md#edge-vocabulary)), no node is orphaned, and every registered source has a node;
-- writes `INDEX.md`, `COMPARE.md`, `graph/graph.json`, `graph/graph.mmd`, `graph/GRAPH.md` and the interactive
-  `explorer/index.html` (one self-contained file; loads d3 and marked from cdnjs);
-- rewrites the **Links** section at the bottom of every node with outgoing edges, **backlinks**
-  and evidence links, so you can walk the graph in any direction in a plain Markdown viewer.
-
-`--check` does the same without writing and fails if anything is stale; CI runs it
-([.github/workflows/graph-check.yml](.github/workflows/graph-check.yml)).
-
-Querying `graph.json` with `jq`:
+This is an [information-miner](https://github.com/MentalGear/information-miner) knowledge base.
+Each note stores only what someone wrote: its text, a one-line `summary`, typed `links` and
+comparison attributes. Everything else is derived. The filename is the id, the folder the type,
+the `# ` heading the title, the links in the text are its citations and mentions. Backlinks, the
+index, compare tables, the graph and the site are built, never committed.
 
 ```bash
-# workflows that mitigate a given anti-pattern
-jq -r '.edges[] | select(.rel=="mitigates" and .to=="ap-trusting-explanations") | .from' graph/graph.json
-# everything one hop from a node, both directions
-jq -r --arg n con-context-boundary '.edges[] | select(.from==$n or .to==$n) | "\(.from) -\(.rel)-> \(.to)"' graph/graph.json
+pip install "information-miner[semantic] @ git+https://github.com/MentalGear/information-miner@claude/wizardly-edison-u0o47b"
+miner check --evidence      # schema, links, citations, and every quotation against its source
+miner build                 # _site/: map, connections, reader, search, compare
+miner search "how do I stop the agent from coding too early" --expand
+miner show wf-plan-file-fresh-session
+miner path ap-trusting-explanations tool-beads
+miner eval eval.json        # search quality on questions phrased the way people ask them
 ```
+
+CI runs `miner check` on every push and publishes the site from `main`
+([.github/workflows/kb.yml](.github/workflows/kb.yml)).
 
 ## Updating from this or other sources
 
-Two steps: a script captures the source, and Claude (or you) mines what changed into nodes.
-
 ```bash
-# re-check registered sources (this thread, the article) for new comments or edits
-python3 scripts/ingest.py refresh
-# add a new source: any HN thread or web page
-python3 scripts/ingest.py add https://news.ycombinator.com/item?id=NNNN
-python3 scripts/ingest.py add https://example.com/some-post --slug some-post
-python3 scripts/ingest.py list
+miner refresh                   # re-capture the thread and the article; writes a delta of unprocessed items
+miner add <url>                 # a new source: any HN thread or web page
 ```
 
-- **HN threads** are fetched as a full comment tree through the Algolia API. The manifest remembers
-  which comment ids have been seen, so a refresh gives you only the new comments, even on a fresh
-  clone.
-- **Web pages** are reduced to text. A refresh gives you a diff against the previous capture.
-- Captures and deltas go to `.cache/sources/` (gitignored: third-party text isn't committed). Only
-  `sources/manifest.json` (URL, capture times, hashes, seen ids) is committed.
-
-To mine the delta, open Claude Code in this repo and run **`/kb-update <url>`**, or ask it to
-"refresh the sources and update the knowledge base". The
-[kb-update skill](.claude/skills/kb-update/SKILL.md) captures, reads the delta, extends or creates
-nodes, records contradictions as "Disputed" sections instead of overwriting, rebuilds and checks
-the graph, and reports what changed.
+Then open Claude Code here and run **`/kb-update <url>`** (the plugin is enabled in
+`.claude/settings.json`), or ask it to "refresh the sources and update the knowledge base". It reads
+the delta, extends or creates notes, takes every quotation from the source with `miner quote`
+instead of typing it, records contradictions as "Disputed" sections, then acks the items and runs
+`miner check --evidence`. Nothing is lost if it stops halfway: items stay unprocessed until acked.
 
 Behind a TLS-intercepting proxy, set `SSL_CERT_FILE` to the proxy's CA bundle.
-
-## Design notes and next steps
-
-Choices made, and what would improve the system next:
-
-- **Nodes are ideas, not comments.** A node collects evidence from many commenters, so the graph
-  stays navigable as sources grow. The cost: the link between a *specific sentence* and its comment
-  lives in prose. **Next:** claim-level records (`claims.jsonl`: node, claim, comment id, stance)
-  would let the build count support vs. dissent per node and flag single-anecdote nodes.
-- **Controlled edge vocabulary.** Twenty relations, enforced by the build. That keeps `graph.json`
-  queryable; resist adding near-synonyms.
-- **Generated backlinks inside each file** make the graph walkable on GitHub or in any editor,
-  without a graph viewer. The files also open as an Obsidian vault; switching links to
-  `[[wikilinks]]` would add Obsidian's graph view, at the cost of GitHub rendering.
-- **Provenance over paraphrase.** Every claim names who said it. Disputes stay visible (see the
-  "Disputed" section in [con-plan-mode-is-a-prompt](concepts/con-plan-mode-is-a-prompt.md)).
-- **Next: freshness.** Add `verified: <date>` to nodes that state product facts (settings, flags,
-  model behaviour) and have the build list stale ones. These age fastest.
-- **Next: weight.** Store how many independent commenters back each workflow, so the playbook
-  ordering is computed rather than editorial.
-- **Next: search.** Past a few hundred nodes, add an embedding or full-text index over summaries
-  (e.g. SQLite FTS5) generated alongside `graph.json`.
-- **Next: scheduled refresh.** A weekly scheduled job (a Claude Code routine or a CI cron) running
-  `ingest.py refresh` and opening a PR with the mined delta would keep the base current without
-  manual work.
 
 ## Caveats
 

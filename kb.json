@@ -1,0 +1,296 @@
+{
+  "title": "Coding Agents Best Practices",
+  "description": "How practitioners plan with coding agents: workflows, tools and pitfalls mined from \"Plan mode is dead\" and its Hacker News thread.",
+  "requires": "0.1",
+  "types": [
+    {
+      "id": "source",
+      "dir": "sources",
+      "label": "Sources",
+      "color": "#5f6f7f"
+    },
+    {
+      "id": "concept",
+      "dir": "concepts",
+      "label": "Concepts",
+      "color": "#4a54c9"
+    },
+    {
+      "id": "workflow",
+      "dir": "workflows",
+      "label": "Workflows",
+      "color": "#1d8455"
+    },
+    {
+      "id": "tool",
+      "dir": "tools",
+      "label": "Tools",
+      "color": "#a86d12"
+    },
+    {
+      "id": "anti-pattern",
+      "dir": "anti-patterns",
+      "label": "Anti-patterns",
+      "color": "#bf3b33"
+    }
+  ],
+  "relations": {
+    "addresses": {
+      "meaning": "works on the problem named by the target",
+      "from": [
+        "workflow",
+        "tool"
+      ],
+      "to": [
+        "concept",
+        "anti-pattern"
+      ]
+    },
+    "applies": {
+      "meaning": "puts the target principle into practice",
+      "to": [
+        "concept"
+      ]
+    },
+    "relies-on": {
+      "meaning": "only works because the target holds",
+      "from": [
+        "workflow",
+        "tool"
+      ],
+      "to": [
+        "concept",
+        "tool"
+      ]
+    },
+    "uses": {
+      "meaning": "uses the target tool",
+      "from": [
+        "workflow"
+      ],
+      "to": [
+        "tool"
+      ]
+    },
+    "enables": {
+      "meaning": "makes the target workflow possible or easier",
+      "from": [
+        "tool"
+      ],
+      "to": [
+        "workflow"
+      ]
+    },
+    "complements": {
+      "meaning": "works well together with the target"
+    },
+    "alternative-to": {
+      "meaning": "can replace the target"
+    },
+    "variant-of": {
+      "meaning": "is a lighter or different form of the target"
+    },
+    "refines": {
+      "meaning": "is a more structured form of the target"
+    },
+    "mitigates": {
+      "meaning": "reduces the target anti-pattern",
+      "to": [
+        "anti-pattern"
+      ]
+    },
+    "instance-of": {
+      "meaning": "is a specific case of the target",
+      "to": [
+        "concept",
+        "anti-pattern"
+      ]
+    },
+    "exemplifies": {
+      "meaning": "is a known example of the target anti-pattern",
+      "from": [
+        "tool",
+        "workflow"
+      ],
+      "to": [
+        "anti-pattern"
+      ]
+    },
+    "critiqued-by": {
+      "meaning": "has a failure mode described by the target",
+      "to": [
+        "anti-pattern"
+      ]
+    },
+    "tension-with": {
+      "meaning": "pulls against the target; choose per situation"
+    },
+    "relates-to": {
+      "meaning": "is related without a stronger relation"
+    },
+    "argues": {
+      "meaning": "(source) makes the case for the target",
+      "from": [
+        "source"
+      ]
+    },
+    "disputes": {
+      "meaning": "(source) contains pushback against the target",
+      "from": [
+        "source"
+      ]
+    },
+    "surfaces": {
+      "meaning": "(source) is where the target idea comes from",
+      "from": [
+        "source"
+      ]
+    },
+    "contains-statement": {
+      "meaning": "(source) contains the primary statement behind the target",
+      "from": [
+        "source"
+      ]
+    },
+    "discussed-in": {
+      "meaning": "(source) is discussed in the target source",
+      "from": [
+        "source"
+      ],
+      "to": [
+        "source"
+      ]
+    }
+  },
+  "facets": {
+    "stage": {
+      "label": "Stage",
+      "values": [
+        "intent",
+        "planning",
+        "execution",
+        "review",
+        "understanding",
+        "context",
+        "safety"
+      ],
+      "list": true,
+      "help": "where in the work it applies",
+      "ordered": false
+    },
+    "scale": {
+      "label": "Task size",
+      "values": [
+        "small",
+        "feature",
+        "large",
+        "long-run"
+      ],
+      "list": true,
+      "help": "task sizes it suits",
+      "ordered": false,
+      "types": [
+        "workflow"
+      ]
+    },
+    "effort": {
+      "label": "Effort",
+      "values": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "list": false,
+      "help": "human effort to adopt and run it",
+      "ordered": true,
+      "types": [
+        "workflow",
+        "tool"
+      ]
+    },
+    "cost": {
+      "label": "Token cost",
+      "values": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "list": false,
+      "help": "extra model usage it adds",
+      "ordered": true,
+      "types": [
+        "workflow"
+      ]
+    },
+    "origin": {
+      "label": "Origin",
+      "values": [
+        "built-in",
+        "third-party",
+        "practice"
+      ],
+      "list": false,
+      "help": "for tools: ships with Claude Code, external, or a general practice",
+      "ordered": false,
+      "types": [
+        "tool"
+      ]
+    },
+    "tags": {
+      "label": "Tags",
+      "values": [
+        "audit",
+        "built-in",
+        "ci",
+        "claude-code",
+        "code-quality",
+        "communication",
+        "context",
+        "core",
+        "cost",
+        "debugging",
+        "default",
+        "exploration",
+        "facts",
+        "handoff",
+        "intent",
+        "lightweight",
+        "long-running",
+        "mcp",
+        "milestones",
+        "models",
+        "open-problem",
+        "orchestration",
+        "persistence",
+        "planning",
+        "primary-source",
+        "process",
+        "prompting",
+        "quality",
+        "recovery",
+        "review",
+        "risk",
+        "safety",
+        "skill",
+        "spec",
+        "testing",
+        "third-party",
+        "tracking",
+        "understanding",
+        "unvetted",
+        "ux",
+        "verification",
+        "writing"
+      ],
+      "list": true,
+      "help": "free topic labels (now a closed vocabulary)",
+      "types": [
+        "source",
+        "concept",
+        "workflow",
+        "tool",
+        "anti-pattern"
+      ]
+    }
+  }
+}
