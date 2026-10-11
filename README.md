@@ -1,5 +1,11 @@
 # Coding Agents Best Practices
 
+> **This knowledge base has moved** to
+> [information-miner/kbs/agentic-swe](https://github.com/MentalGear/information-miner/tree/main/kbs/agentic-swe),
+> together with its full history. It is maintained, checked and published there, and has grown since
+> (a second article and thread, "Coding is NOT solved"). This repository is a frozen snapshot of the
+> migrated notes and can be archived.
+
 Workflows, tools and pitfalls for planning with Claude Code and other coding agents, mined from one
 article and its Hacker News discussion and stored as a linked graph of small Markdown notes:
 
