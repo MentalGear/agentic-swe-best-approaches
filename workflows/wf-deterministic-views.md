@@ -8,6 +8,7 @@ scale: [large, long-run]
 links:
   - addresses: con-understanding-problem
   - mitigates: ap-trusting-explanations
+  - applies: con-independent-verification
 ---
 # Scripts that draw the system from code
 

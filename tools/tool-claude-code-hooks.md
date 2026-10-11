@@ -18,6 +18,7 @@ enforce what a prompt can only request. Docs: <https://code.claude.com/docs/en/h
 
 - ChicagoDave hooked the start of planning and replaced the built-in planner with their own
   ([49851180](https://news.ycombinator.com/item?id=49851180)).
+- oflannabhra: session-start and pre-compact hooks reload the current tasks so they survive compaction; a stop hook lints the task files ([49880576](https://news.ycombinator.com/item?id=49880576)).
 - The idea of making mutating tools error in plan mode (bionhoward, jstanley) is implementable as a
   `PreToolUse` hook that denies file-editing tools while a flag is set. The template below blocks
   `Edit`/`Write`/`MultiEdit`/`NotebookEdit` only; `Bash` can still write files, so pair it with

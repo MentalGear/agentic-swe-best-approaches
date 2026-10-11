@@ -51,4 +51,10 @@ databases and other departments' systems you don't have code for; a person knows
 ([49870125](https://news.ycombinator.com/item?id=49870125)). taurath: teams that still care about code understanding keep shipping, while
 vibe-coding teams in the same org "flounder after the initial burst of features" ([49860769](https://news.ycombinator.com/item?id=49860769)).
 
+## Third refresh (2026-10-11)
+
+- bunderbunder's manager pressed them to stop reading code and let agents review it too. Their answer: "Either I understand the software I'm supposed to support and maintain, or Claude takes over for me on pager duty, too" ([49883724](https://news.ycombinator.com/item?id=49883724)).
+- The optimistic counter, in one line: "Future AI agents will refactor tech debt at lower interest rates" (xnx, [49885061](https://news.ycombinator.com/item?id=49885061)).
+- ake2l on why careful review doesn't scale: "After 50 correct looking changes humans start trusting the green output" ([49881912](https://news.ycombinator.com/item?id=49881912)); see [con-independent-verification](con-independent-verification.md).
+
 Also cited: [49853201](https://news.ycombinator.com/item?id=49853201).

@@ -16,4 +16,6 @@ soleveloper worries heavy "super plan" skills make effort hard to tune ([4985398
 Test: remove the skill for a week. Keep it only if results got worse. Short, specific instructions
 (like the templates in this repo) age better.
 
+shostack's open question applies to every prompt pack: how do you tell when one is obsolete without evals ([49871794](https://news.ycombinator.com/item?id=49871794))? The remove-it-for-a-week test above is the cheapest eval. sligbad, on the products discussed in another thread: "slapping additional markdown prompts at various levels is both silly and ineffective" ([49880876](https://news.ycombinator.com/item?id=49880876)).
+
 Also cited: [49853088](https://news.ycombinator.com/item?id=49853088).

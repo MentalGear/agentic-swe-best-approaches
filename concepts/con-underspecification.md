@@ -25,6 +25,7 @@ phase is finished" ([49854294](https://news.ycombinator.com/item?id=49854294)).
   ([49852704](https://news.ycombinator.com/item?id=49852704)).
 - **Irrelevant questions, missed real ones.** joegibbs: the model asks "Should I use the existing system or create a whole new one in a different language?" while silently assuming things that *were*
   ambiguous ([49852866](https://news.ycombinator.com/item?id=49852866)).
+- **No one-shot products.** Razengan: "You're not gonna one-shot a full, actual product"; each element still has to be designed on its own ([49880852](https://news.ycombinator.com/item?id=49880852)). idle_zealot sees two kinds of users: those with a vision they lack the time or skill to build, and those who want the computer to supply the intent and then react to what they get; "It seems the latter cohort is much larger" ([49881013](https://news.ycombinator.com/item?id=49881013)).
 - **Doing too much.** jumploops: newer models "do more by default", so you now spend effort saying
   what *not* to do ([49851148](https://news.ycombinator.com/item?id=49851148)).
 

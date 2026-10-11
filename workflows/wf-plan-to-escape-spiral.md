@@ -17,7 +17,7 @@ tokens retrying the same techniques" ([49852420](https://news.ycombinator.com/it
 
 thot_experiment sees the opposite default: without plan mode, "hours of time chasing it's tail or
 implementing kludges on kludges" where a simpler fix existed elsewhere
-([49854035](https://news.ycombinator.com/item?id=49854035)).
+([49854035](https://news.ycombinator.com/item?id=49854035)). Later they clarified that this needn't be the mode: they often plan by prompting alone; the point is "the robot doesn't work for me without some time spent planning out what to do" ([49885710](https://news.ycombinator.com/item?id=49885710)).
 
 ## Signals
 

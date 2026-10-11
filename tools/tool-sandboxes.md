@@ -17,3 +17,5 @@ links:
 
 Feathercrown: "It seems unwise not to implement sandbox measures just because the chance of misuse
 has gotten lower" ([49850859](https://news.ycombinator.com/item?id=49850859)).
+
+From a later thread: elesiuta's agent sandboxes deletions and snapshots the repo on every operation, and batches the agent's questions so "questions are deferred while you're away and can be checked in batch upon return" ([49889495](https://news.ycombinator.com/item?id=49889495)). Leynos points to CaMeL for planning tool use safely: "The planning model for tool use sounds something like CaMeL" ([49881265](https://news.ycombinator.com/item?id=49881265)); the paper is [Defeating Prompt Injections by Design](https://arxiv.org/abs/2503.18813) (link from troelsSteegin, [49882004](https://news.ycombinator.com/item?id=49882004)).

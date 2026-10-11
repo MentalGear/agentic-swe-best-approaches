@@ -15,7 +15,7 @@ installing anything that runs with agent permissions.
 | Name | What it claims | Mentioned in |
 |---|---|---|
 | Nuanced (nuanced.dev) | The article author's plan-first coding app | article |
-| epiq (ljtn.github.io/epiq) | Git-backed issue tracker with immutable event logs, workflow replay, inline diffs. kavok found its setup skill referenced issue IDs unrelated to their project ([49869088](https://news.ycombinator.com/item?id=49869088)) | [49854152](https://news.ycombinator.com/item?id=49854152) (author) |
+| epiq (ljtn.github.io/epiq) | Git-backed issue tracker with immutable event logs, workflow replay, inline diffs. kavok found its setup skill referenced issue IDs unrelated to their project ([49869088](https://news.ycombinator.com/item?id=49869088)); the author fixed it ([49874569](https://news.ycombinator.com/item?id=49874569)) and kavok then reports it going well except with Claude cloud sessions ([49876586](https://news.ycombinator.com/item?id=49876586)) | [49854152](https://news.ycombinator.com/item?id=49854152) (author) |
 | recursive-mode.dev | Not described | [49854522](https://news.ycombinator.com/item?id=49854522) |
 | aventasks.dev | Task tracker for humans and agents, successor to their taskwarrior use | [49854586](https://news.ycombinator.com/item?id=49854586) (author) |
 | propelcode.app | Harness with a plan-mode variant | [49852413](https://news.ycombinator.com/item?id=49852413) (author) |
@@ -34,3 +34,6 @@ installing anything that runs with agent permissions.
 | r3 (github.com/hyperlogue/r3) | Review workflow for HTML design docs, used with Codex | [49860141](https://news.ycombinator.com/item?id=49860141) (author) |
 | Mudlet `docs/demo-videos.md` skill | Has Claude record before/after demo videos of changes | [49860289](https://news.ycombinator.com/item?id=49860289) (author) |
 | stencil.so/blog/prewalk | Write-up claiming clear-context-on-accept raised costs | [49851395](https://news.ycombinator.com/item?id=49851395) |
+| juggler.studio | Agent harness that shows and lets you edit the context the model actually reads | [49882788](https://news.ycombinator.com/item?id=49882788) (author) |
+| agent6 (github.com/agent6-dev/agent6) | Agent that sandboxes deletions, snapshots the repo on every operation, batches deferred questions | [49889495](https://news.ycombinator.com/item?id=49889495) (author) |
+| cemented.ai | Answers with deterministically verified quotes linked to their source location | [49882713](https://news.ycombinator.com/item?id=49882713) (author) |

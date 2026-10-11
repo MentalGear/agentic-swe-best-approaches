@@ -63,4 +63,6 @@ the session; git keeps several machines in sync; a separate repo renders views o
 phone; hooks let the agent do the task bookkeeping. They rejected beads and Jira as too heavy.
 boorang's head-to-head test favoured session-per-phase over subagents ([49863290](https://news.ycombinator.com/item?id=49863290)).
 
+oflannabhra's hooks, specifically ([49880576](https://news.ycombinator.com/item?id=49880576)): on start and before compaction a `work brief` skill loads the current tasks, so work state survives compaction; on stop the work-tracking YAML files are linted. jolaflow has agents tag high-stakes decision forks `human-input-needed` and filters on the tag to see which work is blocked on them ([49874581](https://news.ycombinator.com/item?id=49874581)).
+
 Also cited: [49853868](https://news.ycombinator.com/item?id=49853868).

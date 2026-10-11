@@ -27,3 +27,5 @@ Anecdotes, not benchmarks. Recorded here so the graph shows the tradeoff.
 - teliskr likes its brainstorming skill ([49856911](https://news.ycombinator.com/item?id=49856911)); mococa: too much time and tokens, and "a lot
   of useless testing" ([49857018](https://news.ycombinator.com/item?id=49857018)); teliskr agrees it would matter on a tighter budget
   ([49857199](https://news.ycombinator.com/item?id=49857199)).
+- vdqtp3: the spec-plan-implement-review cycle "took one of my test runs (local AI) from 40 minutes to 8 hours, and produced a lower-quality result" ([49882442](https://news.ycombinator.com/item?id=49882442)).
+- shostack finds such packs useful for being asked questions, but is "not sure how to tell when they have become obsolete", with no idea how to write evals for them ([49871794](https://news.ycombinator.com/item?id=49871794)).

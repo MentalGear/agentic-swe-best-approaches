@@ -19,5 +19,6 @@ out by another session", even with the earlier reasoning documented
 
 - Stop when a pass finds nothing at the blocking level, not when it finds nothing.
 - Cap passes (two or three).
+- Or decide the budget openly: int_19h, who proposed the never-trust-a-single-session rule in this thread, runs "review panels of up to 7 different frontier models" for complex work, accepts that "the returns are diminishing", and leaves the cut-off to you ([49943306](https://news.ycombinator.com/item?id=49943306)).
 - Give the reviewer the decisions already made and tell it not to reopen them unless they're wrong
   on the facts.

@@ -21,6 +21,8 @@ brokencode and pseudosavant: "Small plans you can just ask for, and big plans yo
 building a plan.md file" ([49851138](https://news.ycombinator.com/item?id=49851138),
 [49851248](https://news.ycombinator.com/item?id=49851248)).
 
+The article's author on stingraycharles's version of this flow (plan, annotate, fresh session, resolve ambiguities, implement): "This is pretty much exactly the flow we built Nuanced.dev around" (aymandfire, [49879998](https://news.ycombinator.com/item?id=49879998)).
+
 ## Steps
 
 1. "Propose a plan for change X and write to file Y", with `plans/X.md` as the file and no code changes

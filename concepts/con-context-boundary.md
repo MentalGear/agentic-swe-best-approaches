@@ -47,5 +47,7 @@ small decisions that never made it into the plan file.
 - The underlying limit: "AI, looses its memory every time we press 'new thread'" (aDyslecticCrow,
   [49856300](https://news.ycombinator.com/item?id=49856300)), and in a large codebase just exploring one area can use half the context window
   (maccard, [49857952](https://news.ycombinator.com/item?id=49857952)).
+- Rewinding instead of clearing: j-conn rewinds the conversation after a tangent, but admits "I probably justify keeping too much crud in context than I should" ([49881617](https://news.ycombinator.com/item?id=49881617)); nickdothutton wants "labelled branches/traces for the full session/project flow and have the ability to fork from chosen" points ([49881153](https://news.ycombinator.com/item?id=49881153)).
+- The transcript isn't the context: "The scrollback that most agents show is not what the model is reading" (julesrms, [49882788](https://news.ycombinator.com/item?id=49882788)); summarised, dropped or cached parts still show as if present.
 
 Also cited: [49850744](https://news.ycombinator.com/item?id=49850744), [49851144](https://news.ycombinator.com/item?id=49851144), [49852232](https://news.ycombinator.com/item?id=49852232).

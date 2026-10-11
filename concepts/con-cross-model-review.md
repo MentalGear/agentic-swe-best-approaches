@@ -31,4 +31,6 @@ rules, not the conversation. See [wf-adversarial-review](../workflows/wf-adversa
 
 rickye26: reviewing a design with multiple agents "has very little marginal value. The review agent
 will always find something to improve, but mostly it's just nit and not anything super important"
-([49860141](https://news.ycombinator.com/item?id=49860141)).
+([49860141](https://news.ycombinator.com/item?id=49860141)). ake2l argues against the whole approach: "Not another smarter agent judging the first agent, but boring independent machinery which does not care how convincing the explanation sounds" ([49881912](https://news.ycombinator.com/item?id=49881912)); see [con-independent-verification](con-independent-verification.md).
+
+Still common in practice: zzzeek: "I have another instance of Claude (or sometimes GLM 5.x) do a code review on that patch" ([49881198](https://news.ycombinator.com/item?id=49881198)).
