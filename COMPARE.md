@@ -14,7 +14,7 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [Agent-picked tests for slow CI](workflows/wf-agentic-test-selection.md) | review, execution | large, long-run | high | medium | Understand → act → inspect → adjust | 3 |
 | [Agent-written decision log](workflows/wf-decision-log.md) | understanding, context | feature, large | low | low | Planning is not the plan; Keeping the human's mental model current | 8 |
 | [Challenge the first plan with more research](workflows/wf-second-research-pass.md) | planning, review | feature, large | low | medium | Anchoring on the first choice; Smarter models still can't read minds | 2 |
-| [Current-state code and docs that cannot drift](workflows/wf-drift-proof-docs.md) | understanding, review | large, long-run | high | low | Plan with a strong model, build with a cheaper one | 0 |
+| [Current-state code and docs that cannot drift (maintainer-supplied)](workflows/wf-drift-proof-docs.md) | understanding, review | large, long-run | high | low | Plan with a strong model, build with a cheaper one | 0 |
 | [Decommenting pass before PR](workflows/wf-decomment-pass.md) | review | small, feature | low | low | Comments as the agent's scratchpad | 3 |
 | [End-to-end tests that carry the plan](workflows/wf-test-harness-as-plan.md) | execution, review | long-run | high | high | Understand → act → inspect → adjust; Unbounded "looks good, go" | 10 |
 | [Explainer artifacts attached to PRs](workflows/wf-explainer-artifacts.md) | understanding, review | feature, large | low | medium | Keeping the human's mental model current | 8 |

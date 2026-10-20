@@ -94,7 +94,7 @@ vibe-coding teams in the same org "flounder after the initial burst of features"
 - [Adversarial review by a second session](../workflows/wf-adversarial-review.md) `wf-adversarial-review` *addresses* this
 - [Agent-written decision log](../workflows/wf-decision-log.md) `wf-decision-log` *addresses* this
 - [Scripts that draw the system from code](../workflows/wf-deterministic-views.md) `wf-deterministic-views` *addresses* this
-- [Current-state code and docs that cannot drift](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *relates-to* this
+- [Current-state code and docs that cannot drift (maintainer-supplied)](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *relates-to* this
 - [Explainer artifacts attached to PRs](../workflows/wf-explainer-artifacts.md) `wf-explainer-artifacts` *addresses* this
 - [You write the spec, the agent asks](../workflows/wf-human-authored-spec.md) `wf-human-authored-spec` *addresses* this
 - [Living spec directory and TODO.md](../workflows/wf-living-spec-dir.md) `wf-living-spec-dir` *addresses* this

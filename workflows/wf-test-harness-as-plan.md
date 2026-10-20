@@ -52,7 +52,7 @@ the loop" were the human's contribution ([49880656](https://news.ycombinator.com
 run itself.
 
 efficax goes further, asking the model to build a fuzzer and property tests, run every scenario and log full
-traces ([49878532](https://news.ycombinator.com/item?id=49878532)). Pushback: shallow tests that "don't actually test anything" (asveikau,
+traces ([49878532](https://news.ycombinator.com/item?id=49878532)). Pushback: shallow tests that "doesn't actually test anything" (asveikau,
 [49880019](https://news.ycombinator.com/item?id=49880019)); "you have just shifted the problem of verification elsewhere" (boomlinde, [49881359](https://news.ycombinator.com/item?id=49881359));
 testing isn't understanding (layer8, [49879394](https://news.ycombinator.com/item?id=49879394)); the generated tests still need reviewing
 (lolakutty, [49880199](https://news.ycombinator.com/item?id=49880199)). See [ap-green-tests-drift](../anti-patterns/ap-green-tests-drift.md) and

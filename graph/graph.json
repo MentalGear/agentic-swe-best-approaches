@@ -816,7 +816,7 @@
     {
       "id": "wf-drift-proof-docs",
       "type": "workflow",
-      "title": "Current-state code and docs that cannot drift",
+      "title": "Current-state code and docs that cannot drift (maintainer-supplied)",
       "summary": "Keep code and docs describing only the present, generate every restatable fact from code, and let CI flag prose whose subject changed; history goes to an archive and git.",
       "tags": [
         "docs",

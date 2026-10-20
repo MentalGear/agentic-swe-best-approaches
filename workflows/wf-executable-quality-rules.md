@@ -33,8 +33,8 @@ applies a different pattern each time (self-report).
 
 ## Related practices
 
-- askonomm gives the agent code-coverage data, architecture analysis, test requirements and "gotcha's a
-  competent engineer would know" about the system, and keeps coming up with the solutions themself
+- askonomm gives the agent code-coverage data, architecture analysis, test requirements and important "gotcha's" that a
+  competent engineer would know about the system, and keeps coming up with the solutions themself
   ([49879190](https://news.ycombinator.com/item?id=49879190)).
 - monkpit: it's "common advice to wire in deterministic feedback"; static languages aren't inherently
   better for LLMs, they give compiler results ([49880672](https://news.ycombinator.com/item?id=49880672)).

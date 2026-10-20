@@ -49,7 +49,7 @@ a prerequisite.
 - [Orchestration theater](../anti-patterns/ap-orchestration-theater.md) `ap-orchestration-theater` *relates-to* this
 - [The plan as a context boundary](../concepts/con-context-boundary.md) `con-context-boundary` *relates-to* this
 - [opusplan model setting](../tools/tool-opusplan.md) `tool-opusplan` *instance-of* this
-- [Current-state code and docs that cannot drift](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *applies* this
+- [Current-state code and docs that cannot drift (maintainer-supplied)](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *applies* this
 - [Plan file, then a fresh session](../workflows/wf-plan-file-fresh-session.md) `wf-plan-file-fresh-session` *enables* this
 
 **Evidence:** [49852895](https://news.ycombinator.com/item?id=49852895), [49852421](https://news.ycombinator.com/item?id=49852421), [49850915](https://news.ycombinator.com/item?id=49850915), [49851420](https://news.ycombinator.com/item?id=49851420), [49851006](https://news.ycombinator.com/item?id=49851006), [49853739](https://news.ycombinator.com/item?id=49853739), [49856567](https://news.ycombinator.com/item?id=49856567), [49857325](https://news.ycombinator.com/item?id=49857325), [49859085](https://news.ycombinator.com/item?id=49859085)
