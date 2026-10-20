@@ -38,6 +38,7 @@ skill covers some of this.
 
 **Backlinks**
 
+- [Current-state code and docs that cannot drift](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *relates-to* this
 - [Refactor to make the change easy](../workflows/wf-refactor-before-feature.md) `wf-refactor-before-feature` *complements* this
 
 **Evidence:** [49854105](https://news.ycombinator.com/item?id=49854105), [49853035](https://news.ycombinator.com/item?id=49853035), [49853029](https://news.ycombinator.com/item?id=49853029)

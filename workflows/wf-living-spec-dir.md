@@ -61,6 +61,10 @@ be generated, and periodically ask a fresh session to diff spec vs code.
 - *complements* → [Plan file, then a fresh session](../workflows/wf-plan-file-fresh-session.md) `wf-plan-file-fresh-session`
 - *complements* → [Agent-written decision log](../workflows/wf-decision-log.md) `wf-decision-log`
 
+**Backlinks**
+
+- [Current-state code and docs that cannot drift](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *complements* this
+
 **Evidence:** [49852206](https://news.ycombinator.com/item?id=49852206), [49841767](https://news.ycombinator.com/item?id=49841767), [49852374](https://news.ycombinator.com/item?id=49852374), [49852437](https://news.ycombinator.com/item?id=49852437), [49853531](https://news.ycombinator.com/item?id=49853531), [49850846](https://news.ycombinator.com/item?id=49850846), [49855482](https://news.ycombinator.com/item?id=49855482), [49855984](https://news.ycombinator.com/item?id=49855984), [49856137](https://news.ycombinator.com/item?id=49856137), [49858274](https://news.ycombinator.com/item?id=49858274), [49854898](https://news.ycombinator.com/item?id=49854898), [49855121](https://news.ycombinator.com/item?id=49855121)
 
 <!-- graph:links:end -->

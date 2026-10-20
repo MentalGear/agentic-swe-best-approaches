@@ -51,6 +51,7 @@ from node frontmatter.
 
 **Backlinks**
 
+- [Current-state code and docs that cannot drift](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *relates-to* this
 - [Explainer artifacts attached to PRs](../workflows/wf-explainer-artifacts.md) `wf-explainer-artifacts` *complements* this
 - [Port against an oracle, or have the agent write the converter](../workflows/wf-port-with-oracle.md) `wf-port-with-oracle` *relates-to* this
 

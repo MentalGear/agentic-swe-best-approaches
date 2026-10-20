@@ -30,6 +30,7 @@ flowchart LR
     wf_decision_log["Agent-written decision log"]
     wf_decomment_pass["Decommenting pass before PR"]
     wf_deterministic_views["Scripts that draw the system from code"]
+    wf_drift_proof_docs["Current-state code and docs that cannot drift"]
     wf_executable_quality_rules["Turn 'what good looks like' into checks the agent runs"]
     wf_explainer_artifacts["Explainer artifacts attached to PRs"]
     wf_feasibility_check["Lightweight feasibility check"]
@@ -123,6 +124,12 @@ flowchart LR
   wf_decomment_pass -- mitigates --> ap_comment_dumping
   wf_deterministic_views -- addresses --> con_understanding_problem
   wf_deterministic_views -- mitigates --> ap_trusting_explanations
+  wf_drift_proof_docs -- relates-to --> wf_deterministic_views
+  wf_drift_proof_docs -- relates-to --> con_understanding_problem
+  wf_drift_proof_docs -- relates-to --> ap_comment_dumping
+  wf_drift_proof_docs -- relates-to --> wf_decomment_pass
+  wf_drift_proof_docs -- complements --> wf_living_spec_dir
+  wf_drift_proof_docs -- applies --> con_model_tiering
   wf_executable_quality_rules -- addresses --> con_review_capacity
   wf_executable_quality_rules -- mitigates --> ap_green_tests_drift
   wf_executable_quality_rules -- complements --> wf_test_harness_as_plan
@@ -152,6 +159,9 @@ flowchart LR
   wf_orchestrator_subagents -- uses --> tool_subagents
   wf_orchestrator_subagents -- applies --> con_context_boundary
   wf_orchestrator_subagents -- tension-with --> ap_orchestration_theater
+  wf_orchestrator_subagents -- uses --> tool_artifacts
+  wf_orchestrator_subagents -- relates-to --> con_understanding_problem
+  wf_orchestrator_subagents -- relates-to --> wf_drift_proof_docs
   wf_phased_handoffs -- applies --> con_context_boundary
   wf_phased_handoffs -- uses --> tool_beads
   wf_phased_handoffs -- refines --> wf_plan_file_fresh_session
@@ -277,7 +287,7 @@ flowchart LR
   src_hn_thread -- surfaces --> wf_agentic_test_selection
   class src_article_coding_not_solved,src_article,src_hn_coding_not_solved,src_hn_thread source
   class con_accountability,con_ai_prose_fatigue,con_blast_radius,con_coding_vs_engineering,con_context_boundary,con_cross_model_review,con_domain_language,con_iterative_loop,con_mode_switch_cost,con_model_tiering,con_plan_mode_is_a_prompt,con_planning_vs_plan,con_review_capacity,con_two_jobs_of_plan_mode,con_underspecification,con_understanding_problem concept
-  class wf_adversarial_review,wf_agentic_test_selection,wf_conversational_planning,wf_decision_log,wf_decomment_pass,wf_deterministic_views,wf_executable_quality_rules,wf_explainer_artifacts,wf_feasibility_check,wf_human_authored_spec,wf_interview_first,wf_least_privilege_data,wf_living_spec_dir,wf_orchestrator_subagents,wf_phased_handoffs,wf_plan_as_late_checkpoint,wf_plan_file_fresh_session,wf_plan_to_escape_spiral,wf_port_with_oracle,wf_prototype_as_clay,wf_refactor_before_feature,wf_review_code_not_plans,wf_scaffold_then_spike,wf_second_research_pass,wf_spec_until_quiet,wf_spike_during_planning,wf_staged_docs,wf_test_harness_as_plan workflow
+  class wf_adversarial_review,wf_agentic_test_selection,wf_conversational_planning,wf_decision_log,wf_decomment_pass,wf_deterministic_views,wf_drift_proof_docs,wf_executable_quality_rules,wf_explainer_artifacts,wf_feasibility_check,wf_human_authored_spec,wf_interview_first,wf_least_privilege_data,wf_living_spec_dir,wf_orchestrator_subagents,wf_phased_handoffs,wf_plan_as_late_checkpoint,wf_plan_file_fresh_session,wf_plan_to_escape_spiral,wf_port_with_oracle,wf_prototype_as_clay,wf_refactor_before_feature,wf_review_code_not_plans,wf_scaffold_then_spike,wf_second_research_pass,wf_spec_until_quiet,wf_spike_during_planning,wf_staged_docs,wf_test_harness_as_plan workflow
   class tool_artifacts,tool_ask_user_question,tool_beads,tool_claude_code_hooks,tool_claude_code_plan_mode,tool_clops_mcp,tool_grill_me,tool_imbue_blueprint,tool_mentioned_unvetted,tool_opusplan,tool_plannotator,tool_review_uis,tool_sandboxes,tool_subagents,tool_superpowers tool
   class ap_anchoring_on_first_choice,ap_cargo_cult_prompts,ap_comment_dumping,ap_endless_review,ap_front_loading,ap_green_tests_drift,ap_orchestration_theater,ap_overspecified_plan,ap_trusting_explanations,ap_unsupervised_autonomy anti_pattern
   classDef source fill:#eee,stroke:#555

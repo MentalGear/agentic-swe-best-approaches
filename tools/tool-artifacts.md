@@ -31,6 +31,7 @@ hosted artifact is easier to share.
 **Backlinks**
 
 - [Explainer artifacts attached to PRs](../workflows/wf-explainer-artifacts.md) `wf-explainer-artifacts` *uses* this
+- [Parent theorizes, children execute](../workflows/wf-orchestrator-subagents.md) `wf-orchestrator-subagents` *uses* this
 - [End-to-end tests that carry the plan](../workflows/wf-test-harness-as-plan.md) `wf-test-harness-as-plan` *uses* this
 
 **Evidence:** [49850929](https://news.ycombinator.com/item?id=49850929), [49854300](https://news.ycombinator.com/item?id=49854300)

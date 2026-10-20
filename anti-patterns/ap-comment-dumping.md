@@ -42,6 +42,7 @@ the why from git history and transcripts, and more code is never read by a human
 
 - [Anchoring on the first choice](../anti-patterns/ap-anchoring-on-first-choice.md) `ap-anchoring-on-first-choice` *relates-to* this
 - [Decommenting pass before PR](../workflows/wf-decomment-pass.md) `wf-decomment-pass` *mitigates* this
+- [Current-state code and docs that cannot drift](../workflows/wf-drift-proof-docs.md) `wf-drift-proof-docs` *relates-to* this
 
 **Evidence:** [49853029](https://news.ycombinator.com/item?id=49853029), [49854105](https://news.ycombinator.com/item?id=49854105), [49853035](https://news.ycombinator.com/item?id=49853035), [49852925](https://news.ycombinator.com/item?id=49852925), [49856361](https://news.ycombinator.com/item?id=49856361), [49855100](https://news.ycombinator.com/item?id=49855100), [49857418](https://news.ycombinator.com/item?id=49857418), [49857921](https://news.ycombinator.com/item?id=49857921)
 

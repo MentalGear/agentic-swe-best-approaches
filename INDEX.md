@@ -19,11 +19,11 @@ Columns: **out** = edges this node declares, **in** = edges pointing at it. High
 |---|---|---|---|
 | [Fix the vocabulary first](concepts/con-domain-language.md) | Agree on names for the things in your system before building, so you and the agent mean the same thing and the agent doesn't invent its own terms. | 1 | 2 |
 | [Generated prose is hard to review](concepts/con-ai-prose-fatigue.md) | Long AI-written plans and comments bury the decisions that matter; reviewers glaze over, so constrain length and shape of anything a human must read. | 1 | 10 |
-| [Keeping the human's mental model current](concepts/con-understanding-problem.md) | The unsolved problem the article ends on; when agents write most of the code, how does the human still understand the system, and how does that scale to many agents? | 1 | 14 |
+| [Keeping the human's mental model current](concepts/con-understanding-problem.md) | The unsolved problem the article ends on; when agents write most of the code, how does the human still understand the system, and how does that scale to many agents? | 1 | 16 |
 | [Modes make you answer a meta-question](concepts/con-mode-switch-cost.md) | A separate plan mode forces the user to decide up front whether a task deserves planning; letting the phrasing or a project rule decide removes that load. | 1 | 2 |
 | [Never trust a single session](concepts/con-cross-model-review.md) | A second session with no shared context, ideally from another model family, catches errors the author session can't see. | 1 | 7 |
 | [Plan mode is only a prompt](concepts/con-plan-mode-is-a-prompt.md) | Per the Claude Code team, plan mode is a reminder appended to each message, not a sandbox or tool restriction; treat it as convention, not safety. | 1 | 8 |
-| [Plan with a strong model, build with a cheaper one](concepts/con-model-tiering.md) | Spend the expensive model on planning and review and a cheaper model on execution; the plan file is the handoff. | 1 | 4 |
+| [Plan with a strong model, build with a cheaper one](concepts/con-model-tiering.md) | Spend the expensive model on planning and review and a cheaper model on execution; the plan file is the handoff. | 1 | 5 |
 | [Planning is not the plan](concepts/con-planning-vs-plan.md) | The thinking before building is valuable; a large generated plan document usually isn't. Keep the activity, shrink the artifact. | 2 | 7 |
 | [Review capacity is the limit on agent output](concepts/con-review-capacity.md) | Agents can produce changes far faster than a person can read them; commenters split on whether AI reviewers, tests or smaller scope can replace the human reading. | 3 | 5 |
 | [Scale ceremony to blast radius](concepts/con-blast-radius.md) | Skip planning for small reversible changes; require an explicit plan and a human stop for auth, payments, shared schemas, data migrations and prod. | 1 | 7 |
@@ -34,7 +34,7 @@ Columns: **out** = edges this node declares, **in** = edges pointing at it. High
 | [Understand → act → inspect → adjust](concepts/con-iterative-loop.md) | The article's replacement for plan→approve→execute; planning happens inside a tight loop rather than as a gate in front of it. | 1 | 13 |
 | [Whoever ships the code owns it](concepts/con-accountability.md) | The article says you cannot be accountable for what you don't understand; commenters mostly accept that the shipper or employer is liable, and dispute whether understanding is a precondition. | 2 | 2 |
 
-## Workflows (28)
+## Workflows (29)
 
 | Node | Summary | out | in |
 |---|---|---|---|
@@ -42,14 +42,15 @@ Columns: **out** = edges this node declares, **in** = edges pointing at it. High
 | [Agent-picked tests for slow CI](workflows/wf-agentic-test-selection.md) | When the full test suite takes hours, index which tests touch which code and have an agent pick the relevant tests for each change, with full runs and automatic bisecting on a schedule. | 2 | 1 |
 | [Agent-written decision log](workflows/wf-decision-log.md) | Have the agent write a short design note before each non-trivial change and record deviations afterward; you rarely read it, but it's there for forensics. | 2 | 1 |
 | [Challenge the first plan with more research](workflows/wf-second-research-pass.md) | After the first plan, send the agent back to research the codebase's own constraints and ask it to improve the plan; first plans are often the first idea that works, not the smallest change. | 3 | 1 |
-| [Decommenting pass before PR](workflows/wf-decomment-pass.md) | Strip agent stream-of-consciousness comments before each PR, keeping only comments that explain why; a clean codebase makes future generations cleaner. | 1 | 1 |
+| [Current-state code and docs that cannot drift](workflows/wf-drift-proof-docs.md) | Keep code and docs describing only the present, generate every restatable fact from code, and let CI flag prose whose subject changed; history goes to an archive and git. | 6 | 1 |
+| [Decommenting pass before PR](workflows/wf-decomment-pass.md) | Strip agent stream-of-consciousness comments before each PR, keeping only comments that explain why; a clean codebase makes future generations cleaner. | 1 | 2 |
 | [End-to-end tests that carry the plan](workflows/wf-test-harness-as-plan.md) | Encode the plan as an end-to-end test harness whose failure messages quote the relevant part of the plan, so long unattended runs stay on track. | 4 | 3 |
 | [Explainer artifacts attached to PRs](workflows/wf-explainer-artifacts.md) | For complex or core changes, ask for diagrams or an interactive demo explaining the change and the alternatives considered, and attach it to the PR for reviewers and future agents. | 4 | 2 |
 | [Explore, list unknowns, scaffold, spike](workflows/wf-scaffold-then-spike.md) | Before real code, require exploration, an explicit list of assumptions, a stub-only scaffold of intent in the codebase, and spikes that validate the risky assumptions. | 4 | 2 |
 | [Lightweight feasibility check](workflows/wf-feasibility-check.md) | Instead of a full plan, ask for a short feasibility verdict and two or three solution options, just enough to confirm the agent's approach matches yours. | 3 | 0 |
-| [Living spec directory and TODO.md](workflows/wf-living-spec-dir.md) | Keep specs as a directory of files (and a TODO.md of known bugs and future work) that the agent must update whenever something material changes. | 3 | 0 |
+| [Living spec directory and TODO.md](workflows/wf-living-spec-dir.md) | Keep specs as a directory of files (and a TODO.md of known bugs and future work) that the agent must update whenever something material changes. | 3 | 1 |
 | [Make the agent interview you](workflows/wf-interview-first.md) | Before any plan, have the agent ask you its top questions one at a time until the ambiguities are yours to decide rather than its to guess. | 5 | 3 |
-| [Parent theorizes, children execute](workflows/wf-orchestrator-subagents.md) | A long-lived parent session holds the plan and the theory; it dispatches narrowly-scoped subagents with only the context they need, and stays available to be quizzed. | 3 | 1 |
+| [Parent theorizes, children execute](workflows/wf-orchestrator-subagents.md) | A long-lived parent session holds the plan and the theory; it dispatches narrowly-scoped subagents with only the context they need, and stays available to be quizzed. | 6 | 1 |
 | [Plan file, then a fresh session](workflows/wf-plan-file-fresh-session.md) | Iterate on plan.md with the agent, then start a new session that reads only the plan and implements it; the file is audit trail, handoff and context reset in one. | 5 | 6 |
 | [Plan in conversation, no mode](workflows/wf-conversational-planning.md) | Say "discuss first, no code yet" (or set a standing phrasing rule) and plan in the normal session; act only on an explicit go. | 5 | 4 |
 | [Plan mode as a late checkpoint](workflows/wf-plan-as-late-checkpoint.md) | Explore and decide in normal conversation first; switch to plan mode only at the end to consolidate one reviewable plan, catch remaining gaps, and clear context before building. | 4 | 1 |
@@ -58,7 +59,7 @@ Columns: **out** = edges this node declares, **in** = edges pointing at it. High
 | [Re-plan until the spec stops changing](workflows/wf-spec-until-quiet.md) | Run the planning pass over your spec repeatedly, fixing the spec each time, and only implement once a pass finds nothing new. | 2 | 2 |
 | [Read-only credentials instead of trust](workflows/wf-least-privilege-data.md) | Give agents read-only DB users, replicas or copies and no prod secrets, so safety doesn't depend on plan mode or on the model behaving. | 4 | 2 |
 | [Refactor to make the change easy](workflows/wf-refactor-before-feature.md) | Before building a feature, have the agent remove the cruft the feature would build on, and fold that cleanup into the feature's work. | 3 | 1 |
-| [Scripts that draw the system from code](workflows/wf-deterministic-views.md) | Have the agent write scripts that generate diagrams and tables directly from code or config, so your view of the system can't drift or be hallucinated. | 2 | 2 |
+| [Scripts that draw the system from code](workflows/wf-deterministic-views.md) | Have the agent write scripts that generate diagrams and tables directly from code or config, so your view of the system can't drift or be hallucinated. | 2 | 3 |
 | [Short sessions passing handoff docs](workflows/wf-phased-handoffs.md) | Break work into phases run by short-lived sessions, each starting from an explicit handoff doc and ending by writing the next one. | 3 | 1 |
 | [Skip the plan, review the PR](workflows/wf-review-code-not-plans.md) | When the codebase has strong linters, hooks and patterns, let the agent make a first pass and spend your attention on the diff instead of on a plan you would skim anyway. | 4 | 2 |
 | [Strategy doc, then sprint doc, then build](workflows/wf-staged-docs.md) | For big features, iterate a high-level strategy doc, then a technical sprint doc, then implementation and e2e scenarios, with a human resolving "founder questions" and another model reviewing each stage. | 3 | 0 |
@@ -78,7 +79,7 @@ Columns: **out** = edges this node declares, **in** = edges pointing at it. High
 | [Claude Code question tool](tools/tool-ask-user-question.md) | Built-in tool that lets Claude ask you structured multiple-choice questions in any mode, not only plan mode. | 1 | 1 |
 | [clops-mcp](tools/tool-clops-mcp.md) | SkyPuncher's MCP server acting as a pseudo-harness of stacked multi-step "micro-skills" for repeatable agent workflows (published without the actual ops). | 1 | 1 |
 | [grill-me and grill-with-docs skills](tools/tool-grill-me.md) | Matt Pocock's skills that make the agent interview you exhaustively about a feature before building; widely cited as a plan-mode replacement. | 2 | 1 |
-| [HTML explainers and artifacts](tools/tool-artifacts.md) | Generated HTML pages, diagrams or interactive demos used to explain a change or hold a plan; shareable and linkable from PRs. | 2 | 2 |
+| [HTML explainers and artifacts](tools/tool-artifacts.md) | Generated HTML pages, diagrams or interactive demos used to explain a change or hold a plan; shareable and linkable from PRs. | 2 | 3 |
 | [imbue-ai/blueprint](tools/tool-imbue-blueprint.md) | Skill package offered as a plan-mode replacement; mentioned once without detail. | 1 | 0 |
 | [obra/superpowers](tools/tool-superpowers.md) | Popular skill pack for plan-then-execute workflows; the thread's reviews were mostly negative on bloat and cost. | 1 | 2 |
 | [opusplan model setting](tools/tool-opusplan.md) | Claude Code model alias that uses a stronger model while planning and a cheaper one for execution. | 2 | 0 |
@@ -93,7 +94,7 @@ Columns: **out** = edges this node declares, **in** = edges pointing at it. High
 |---|---|---|---|
 | [Anchoring on the first choice](anti-patterns/ap-anchoring-on-first-choice.md) | The agent treats its first decision as fixed, refusing "breaking" changes to uncommitted code or wrapping the old path in defensive code and comments instead of replacing it. | 2 | 2 |
 | [Cargo-cult mega-prompts](anti-patterns/ap-cargo-cult-prompts.md) | Pages of role-play and procedure ("You are a senior expert reviewer…") that newer models don't need and that crowd out the actual task. | 1 | 1 |
-| [Comments as the agent's scratchpad](anti-patterns/ap-comment-dumping.md) | Agents narrate history, conversation and the obvious in code comments; it buries the why and teaches future generations the same habit. | 1 | 2 |
+| [Comments as the agent's scratchpad](anti-patterns/ap-comment-dumping.md) | Agents narrate history, conversation and the obvious in code comments; it buries the why and teaches future generations the same habit. | 1 | 3 |
 | [Green tests, drifted behaviour](anti-patterns/ap-green-tests-drift.md) | Treating "the existing tests pass" as done lets the agent change everything the tests don't pin down, and reviewers who check each commit in isolation miss the drift. | 2 | 3 |
 | [Implementation details in the plan](anti-patterns/ap-overspecified-plan.md) | A planner that hasn't done the deep dive writes code-level detail that the better-informed implementing agent then has to follow or fight. | 2 | 1 |
 | [Orchestration theater](anti-patterns/ap-orchestration-theater.md) | Elaborate multi-agent pipelines with boards, gates and personas that look productive while burning tokens and producing little. | 1 | 1 |
@@ -104,7 +105,7 @@ Columns: **out** = edges this node declares, **in** = edges pointing at it. High
 
 ## Hubs (most backlinks)
 
-1. [Keeping the human's mental model current](concepts/con-understanding-problem.md) — 14 backlinks
+1. [Keeping the human's mental model current](concepts/con-understanding-problem.md) — 16 backlinks
 1. [Understand → act → inspect → adjust](concepts/con-iterative-loop.md) — 13 backlinks
 1. [Smarter models still can't read minds](concepts/con-underspecification.md) — 12 backlinks
 1. [Generated prose is hard to review](concepts/con-ai-prose-fatigue.md) — 10 backlinks
@@ -122,11 +123,11 @@ Read an edge as *from — relation → to*.
 | Relation | Meaning | Count |
 |---|---|---|
 | addresses | works on the problem named by the target | 22 |
-| applies | puts the target principle into practice | 18 |
+| applies | puts the target principle into practice | 19 |
 | relies-on | only works because the target holds | 3 |
-| uses | uses the target tool | 14 |
+| uses | uses the target tool | 15 |
 | enables | makes the target workflow possible or easier | 14 |
-| complements | works well together with the target | 12 |
+| complements | works well together with the target | 13 |
 | alternative-to | can replace the target | 7 |
 | variant-of | is a lighter or different form of the target | 5 |
 | refines | is a more structured form of the target | 2 |
@@ -135,7 +136,7 @@ Read an edge as *from — relation → to*.
 | exemplifies | is a known example of the target anti-pattern | 1 |
 | critiqued-by | has a failure mode described by the target | 2 |
 | tension-with | pulls against the target; choose per situation | 8 |
-| relates-to | is related without a stronger relation | 37 |
+| relates-to | is related without a stronger relation | 43 |
 | argues | (source) makes the case for the target | 9 |
 | disputes | (source) contains pushback against the target | 2 |
 | surfaces | (source) is where the target idea comes from | 18 |

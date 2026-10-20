@@ -6,7 +6,7 @@ version, with filters and sorting, is the **Compare** tab of [explorer/index.htm
 Attributes: **Stage** = where in the work it applies (intent, planning, execution, review, understanding, context, safety); **Task size** = task sizes it suits (small, feature, large, long-run); **Effort** = human effort to adopt and run it (low, medium, high); **Token cost** = extra model usage it adds (low, medium, high); **Origin** = for tools: ships with Claude Code, external, or a general practice (built-in, third-party, practice).
 **Evidence** = comments and pages cited. Ratings are editorial judgments from the thread, not measurements.
 
-## Workflows (28)
+## Workflows (29)
 
 | Name | Stage | Task size | Effort | Token cost | Addresses | Evidence |
 |---|---|---|---|---|---|---|
@@ -14,6 +14,7 @@ Attributes: **Stage** = where in the work it applies (intent, planning, executio
 | [Agent-picked tests for slow CI](workflows/wf-agentic-test-selection.md) | review, execution | large, long-run | high | medium | Understand → act → inspect → adjust | 3 |
 | [Agent-written decision log](workflows/wf-decision-log.md) | understanding, context | feature, large | low | low | Planning is not the plan; Keeping the human's mental model current | 8 |
 | [Challenge the first plan with more research](workflows/wf-second-research-pass.md) | planning, review | feature, large | low | medium | Anchoring on the first choice; Smarter models still can't read minds | 2 |
+| [Current-state code and docs that cannot drift](workflows/wf-drift-proof-docs.md) | understanding, review | large, long-run | high | low | Plan with a strong model, build with a cheaper one | 0 |
 | [Decommenting pass before PR](workflows/wf-decomment-pass.md) | review | small, feature | low | low | Comments as the agent's scratchpad | 3 |
 | [End-to-end tests that carry the plan](workflows/wf-test-harness-as-plan.md) | execution, review | long-run | high | high | Understand → act → inspect → adjust; Unbounded "looks good, go" | 10 |
 | [Explainer artifacts attached to PRs](workflows/wf-explainer-artifacts.md) | understanding, review | feature, large | low | medium | Keeping the human's mental model current | 8 |

@@ -814,6 +814,30 @@
       "origin": null
     },
     {
+      "id": "wf-drift-proof-docs",
+      "type": "workflow",
+      "title": "Current-state code and docs that cannot drift",
+      "summary": "Keep code and docs describing only the present, generate every restatable fact from code, and let CI flag prose whose subject changed; history goes to an archive and git.",
+      "tags": [
+        "docs",
+        "verification",
+        "maintenance"
+      ],
+      "sources": [],
+      "path": "workflows/wf-drift-proof-docs.md",
+      "stage": [
+        "understanding",
+        "review"
+      ],
+      "scale": [
+        "large",
+        "long-run"
+      ],
+      "effort": "high",
+      "cost": "low",
+      "origin": null
+    },
+    {
       "id": "wf-executable-quality-rules",
       "type": "workflow",
       "title": "Turn \"what good looks like\" into checks the agent runs",
@@ -2355,6 +2379,36 @@
       "to": "ap-trusting-explanations"
     },
     {
+      "from": "wf-drift-proof-docs",
+      "rel": "relates-to",
+      "to": "wf-deterministic-views"
+    },
+    {
+      "from": "wf-drift-proof-docs",
+      "rel": "relates-to",
+      "to": "con-understanding-problem"
+    },
+    {
+      "from": "wf-drift-proof-docs",
+      "rel": "relates-to",
+      "to": "ap-comment-dumping"
+    },
+    {
+      "from": "wf-drift-proof-docs",
+      "rel": "relates-to",
+      "to": "wf-decomment-pass"
+    },
+    {
+      "from": "wf-drift-proof-docs",
+      "rel": "complements",
+      "to": "wf-living-spec-dir"
+    },
+    {
+      "from": "wf-drift-proof-docs",
+      "rel": "applies",
+      "to": "con-model-tiering"
+    },
+    {
       "from": "wf-executable-quality-rules",
       "rel": "addresses",
       "to": "con-review-capacity"
@@ -2498,6 +2552,21 @@
       "from": "wf-orchestrator-subagents",
       "rel": "tension-with",
       "to": "ap-orchestration-theater"
+    },
+    {
+      "from": "wf-orchestrator-subagents",
+      "rel": "uses",
+      "to": "tool-artifacts"
+    },
+    {
+      "from": "wf-orchestrator-subagents",
+      "rel": "relates-to",
+      "to": "con-understanding-problem"
+    },
+    {
+      "from": "wf-orchestrator-subagents",
+      "rel": "relates-to",
+      "to": "wf-drift-proof-docs"
     },
     {
       "from": "wf-phased-handoffs",
